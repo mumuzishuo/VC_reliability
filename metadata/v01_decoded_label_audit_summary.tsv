@@ -1,0 +1,5 @@
+environment	cell_count	n_sgID_AB	n_gene_categories	n_gene_id_categories	n_gem_groups	n_missing_in_profiled_fields	n_genes_with_multiple_guides	batch_field	sample_field	donor_field	control_label	control_cell_count
+HepG2	145473	2679	2394	2392	56	0	136	absent	absent	absent	non-targeting	4976
+Jurkat	262956	2679	2394	2392	55	0	136	absent	absent	absent	non-targeting	12013
+K562_essential	310385	2273	2058	2058	48	0	119	absent	absent	absent	non-targeting	10691
+RPE1	247914	2662	2394	2392	56	0	136	absent	absent	absent	non-targeting	11485
