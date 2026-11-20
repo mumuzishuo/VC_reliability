@@ -1,0 +1,10 @@
+item	value	status	source
+working_directory	VC_reliability project directory	confirmed	HPC command output
+python_version	3.9.13	confirmed	HPC command output
+anndata	unavailable	pending_project_environment	HPC command output
+h5py	available	confirmed	HPC command output
+pandas	available	confirmed	HPC command output
+numpy	available	confirmed	HPC command output
+raw_files_found	4	confirmed	HPC command output
+raw_storage_available	53T	confirmed	HPC command output
+raw_storage_use	92%	confirmed	HPC command output

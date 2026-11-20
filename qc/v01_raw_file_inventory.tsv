@@ -1,0 +1,5 @@
+environment	filename	size_bytes	size_gb_ decimal	sha256_status
+HepG2	GSE264667_hepg2_raw_singlecell_01.h5ad	5614460941	5.614460941	not_yet_computed
+Jurkat	GSE264667_jurkat_raw_singlecell_01.h5ad	9366490264	9.366490264	not_yet_computed
+K562 essential	K562_essential_raw_singlecell_01.h5ad	10661879995	10.661879995	not_yet_computed
+RPE1	rpe1_raw_singlecell_01.h5ad	8700873216	8.700873216	not_yet_computed
