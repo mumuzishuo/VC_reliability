@@ -1,0 +1,5 @@
+environment	cell_count	expressed_gene_count	gem_group_count	perturbation_label_status	control_status	current_audit_status
+K562 essential	310385	8563	48	label field available	non-targeting control reported	raw audit completed
+RPE1	247914	8749	56	label field available	non-targeting control reported	raw audit completed
+Jurkat	262956	8882	55	label field available	non-targeting control reported	raw audit completed
+HepG2	145473	9624	56	label field available	non-targeting control reported	raw audit completed

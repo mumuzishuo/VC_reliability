@@ -1,0 +1,10 @@
+item	value	definition	status
+total_cells_all_environments	966728	Sum of the four current Perturb-seq environments	project-reported
+shared_perturbation_genes	2053	Perturbation labels shared across all four environments	project-reported
+shared_expression_genes	6642	Expression genes shared across all four environments	project-reported
+minimum_cells_per_perturbation_task	30	Minimum cells required in every environment for the main panel	frozen-for-v01
+main_perturbation_tasks	1264	Tasks retained after the minimum-cell threshold	frozen-for-v01
+normalisation_target_sum	10000	Target library size for log-normalisation	frozen-for-v01
+control_matching_priority	GEM,batch,sample	Preferred matching variables for perturbation controls	frozen-for-v01
+low_control_gem_groups	0	Low-control GEM groups identified in the current audit	project-reported
+max_recomputed_response_difference	7.34e-8	Maximum difference found when 35 tasks were independently recomputed	project-reported

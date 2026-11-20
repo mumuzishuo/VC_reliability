@@ -1,0 +1,28 @@
+project: VC_reliability
+analysis_version: v01
+stage: data_audit
+python_version: "3.9"
+normalisation:
+  formula: "log1p(10000 * raw_count / UMI_count)"
+  target_sum: 10000
+task_filter:
+  minimum_cells_per_perturbation_in_each_environment: 30
+  main_panel_tasks: 1264
+shared_features:
+  perturbation_genes: 2053
+  expression_genes: 6642
+control_matching:
+  priority:
+    - gem_group
+    - batch
+    - sample
+  weighting: "weight by perturbation-cell proportions across GEM groups"
+audit:
+  low_control_gem_groups: 0
+  independently_recomputed_tasks: 35
+  maximum_response_difference: 7.34e-8
+  raw_data_overwritten: false
+leakage_controls:
+  target_environment_response_used_for_rule_selection: false
+  target_environment_response_used_for_calibration: false
+  external_validation_used_before_freeze: false
