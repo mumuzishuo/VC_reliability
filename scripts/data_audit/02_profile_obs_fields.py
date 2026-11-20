@@ -40,8 +40,29 @@ def decode_scalar(value: Any) -> str:
 
 
 def read_column(node: h5py.Dataset | h5py.Group) -> list[str] | None:
+    """Decode ordinary, pandas-categorical and AnnData categorical columns."""
     if isinstance(node, h5py.Dataset):
-        return [decode_scalar(value) for value in node[...]]
+        raw_values = np.asarray(node[...])
+
+        # AnnData stores categorical observation values as integer codes.
+        # The categories dataset is referenced from the dataset attributes.
+        if "categories" in node.attrs:
+            reference = node.attrs["categories"]
+            if isinstance(reference, np.ndarray):
+                reference = reference.item()
+            categories_node = node.file[reference]
+            categories = np.asarray(categories_node[...])
+
+            values = []
+            for code in raw_values:
+                code_value = int(code)
+                if code_value < 0 or code_value >= len(categories):
+                    values.append("<NA>")
+                else:
+                    values.append(decode_scalar(categories[code_value]))
+            return values
+
+        return [decode_scalar(value) for value in raw_values]
 
     if "codes" not in node or "categories" not in node:
         return None
@@ -51,13 +72,11 @@ def read_column(node: h5py.Dataset | h5py.Group) -> list[str] | None:
     values = []
     for code in codes:
         code_value = int(code)
-        if code_value < 0:
+        if code_value < 0 or code_value >= len(categories):
             values.append("<NA>")
         else:
             values.append(decode_scalar(categories[code_value]))
     return values
-
-
 def find_column(obs: h5py.Group, requested: str) -> str | None:
     requested_name = normalise_name(requested)
     for actual_name in obs.keys():
