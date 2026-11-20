@@ -1,0 +1,986 @@
+[
+  {
+    "label": "HepG2",
+    "file_name": "GSE264667_hepg2_raw_singlecell_01.h5ad",
+    "file_size_bytes": 5614460941,
+    "top_level_keys": [
+      "X",
+      "obs",
+      "var"
+    ],
+    "x_shape": [
+      145473,
+      9624
+    ],
+    "x_keys": [],
+    "obs_columns": [
+      "UMI_count",
+      "__categories",
+      "cell_barcode",
+      "gem_group",
+      "gene",
+      "gene_id",
+      "gene_transcript",
+      "mitopercent",
+      "sgID_AB",
+      "transcript",
+      "z_gemgroup_UMI"
+    ],
+    "var_columns": [
+      "__categories",
+      "chr",
+      "class",
+      "cv",
+      "end",
+      "fano",
+      "gene_id",
+      "gene_name",
+      "in_matrix",
+      "length",
+      "mean",
+      "start",
+      "std",
+      "strand"
+    ],
+    "candidate_columns": {
+      "perturbation": "sgID_AB",
+      "gem_group": "gem_group",
+      "umi": "UMI_count",
+      "mitochondrial_fraction": "mitopercent"
+    },
+    "candidate_column_summaries": {
+      "perturbation": {
+        "column": "sgID_AB",
+        "readable_values": true,
+        "n_values": 145473,
+        "n_unique": 2679,
+        "top_values": [
+          {
+            "value": "2179",
+            "count": 1213
+          },
+          {
+            "value": "741",
+            "count": 749
+          },
+          {
+            "value": "1971",
+            "count": 597
+          },
+          {
+            "value": "802",
+            "count": 536
+          },
+          {
+            "value": "790",
+            "count": 476
+          },
+          {
+            "value": "1580",
+            "count": 459
+          },
+          {
+            "value": "2012",
+            "count": 452
+          },
+          {
+            "value": "591",
+            "count": 435
+          },
+          {
+            "value": "1259",
+            "count": 432
+          },
+          {
+            "value": "1169",
+            "count": 430
+          }
+        ]
+      },
+      "gem_group": {
+        "column": "gem_group",
+        "readable_values": true,
+        "n_values": 145473,
+        "n_unique": 56,
+        "top_values": [
+          {
+            "value": "18",
+            "count": 3513
+          },
+          {
+            "value": "7",
+            "count": 3295
+          },
+          {
+            "value": "38",
+            "count": 3238
+          },
+          {
+            "value": "3",
+            "count": 3226
+          },
+          {
+            "value": "20",
+            "count": 3199
+          },
+          {
+            "value": "12",
+            "count": 3159
+          },
+          {
+            "value": "55",
+            "count": 3137
+          },
+          {
+            "value": "44",
+            "count": 3103
+          },
+          {
+            "value": "14",
+            "count": 3099
+          },
+          {
+            "value": "25",
+            "count": 3089
+          }
+        ]
+      },
+      "umi": {
+        "column": "UMI_count",
+        "readable_values": true,
+        "n_values": 145473,
+        "n_unique": 38700,
+        "top_values": [
+          {
+            "value": "12453.0",
+            "count": 21
+          },
+          {
+            "value": "12998.0",
+            "count": 21
+          },
+          {
+            "value": "12267.0",
+            "count": 21
+          },
+          {
+            "value": "11563.0",
+            "count": 20
+          },
+          {
+            "value": "11613.0",
+            "count": 20
+          },
+          {
+            "value": "11358.0",
+            "count": 19
+          },
+          {
+            "value": "11806.0",
+            "count": 19
+          },
+          {
+            "value": "12597.0",
+            "count": 19
+          },
+          {
+            "value": "13648.0",
+            "count": 19
+          },
+          {
+            "value": "12543.0",
+            "count": 19
+          }
+        ]
+      },
+      "mitochondrial_fraction": {
+        "column": "mitopercent",
+        "readable_values": true,
+        "n_values": 145473,
+        "n_unique": 142677,
+        "top_values": [
+          {
+            "value": "0.10000000149011612",
+            "count": 27
+          },
+          {
+            "value": "0.0833333358168602",
+            "count": 16
+          },
+          {
+            "value": "0.09090909361839294",
+            "count": 16
+          },
+          {
+            "value": "0.10526315867900848",
+            "count": 14
+          },
+          {
+            "value": "0.1111111119389534",
+            "count": 12
+          },
+          {
+            "value": "0.095238097012043",
+            "count": 10
+          },
+          {
+            "value": "0.08571428805589676",
+            "count": 9
+          },
+          {
+            "value": "0.07692307978868484",
+            "count": 8
+          },
+          {
+            "value": "0.08695652335882187",
+            "count": 8
+          },
+          {
+            "value": "0.09756097197532654",
+            "count": 7
+          }
+        ]
+      }
+    },
+    "has_raw_group": false
+  },
+  {
+    "label": "Jurkat",
+    "file_name": "GSE264667_jurkat_raw_singlecell_01.h5ad",
+    "file_size_bytes": 9366490264,
+    "top_level_keys": [
+      "X",
+      "obs",
+      "var"
+    ],
+    "x_shape": [
+      262956,
+      8882
+    ],
+    "x_keys": [],
+    "obs_columns": [
+      "UMI_count",
+      "__categories",
+      "cell_barcode",
+      "gem_group",
+      "gene",
+      "gene_id",
+      "gene_transcript",
+      "mitopercent",
+      "sgID_AB",
+      "transcript",
+      "z_gemgroup_UMI"
+    ],
+    "var_columns": [
+      "__categories",
+      "chr",
+      "class",
+      "cv",
+      "end",
+      "fano",
+      "gene_id",
+      "gene_name",
+      "in_matrix",
+      "length",
+      "mean",
+      "start",
+      "std",
+      "strand"
+    ],
+    "candidate_columns": {
+      "perturbation": "sgID_AB",
+      "gem_group": "gem_group",
+      "umi": "UMI_count",
+      "mitochondrial_fraction": "mitopercent"
+    },
+    "candidate_column_summaries": {
+      "perturbation": {
+        "column": "sgID_AB",
+        "readable_values": true,
+        "n_values": 262956,
+        "n_unique": 2679,
+        "top_values": [
+          {
+            "value": "2179",
+            "count": 2555
+          },
+          {
+            "value": "1971",
+            "count": 1633
+          },
+          {
+            "value": "740",
+            "count": 1382
+          },
+          {
+            "value": "801",
+            "count": 1294
+          },
+          {
+            "value": "1628",
+            "count": 1243
+          },
+          {
+            "value": "1169",
+            "count": 1192
+          },
+          {
+            "value": "1580",
+            "count": 1186
+          },
+          {
+            "value": "1259",
+            "count": 1142
+          },
+          {
+            "value": "1168",
+            "count": 998
+          },
+          {
+            "value": "2149",
+            "count": 827
+          }
+        ]
+      },
+      "gem_group": {
+        "column": "gem_group",
+        "readable_values": true,
+        "n_values": 262956,
+        "n_unique": 55,
+        "top_values": [
+          {
+            "value": "44",
+            "count": 5936
+          },
+          {
+            "value": "3",
+            "count": 5847
+          },
+          {
+            "value": "7",
+            "count": 5743
+          },
+          {
+            "value": "12",
+            "count": 5711
+          },
+          {
+            "value": "5",
+            "count": 5618
+          },
+          {
+            "value": "25",
+            "count": 5517
+          },
+          {
+            "value": "47",
+            "count": 5498
+          },
+          {
+            "value": "29",
+            "count": 5467
+          },
+          {
+            "value": "2",
+            "count": 5466
+          },
+          {
+            "value": "55",
+            "count": 5377
+          }
+        ]
+      },
+      "umi": {
+        "column": "UMI_count",
+        "readable_values": true,
+        "n_values": 262956,
+        "n_unique": 32846,
+        "top_values": [
+          {
+            "value": "8357.0",
+            "count": 49
+          },
+          {
+            "value": "10732.0",
+            "count": 43
+          },
+          {
+            "value": "8556.0",
+            "count": 43
+          },
+          {
+            "value": "8968.0",
+            "count": 42
+          },
+          {
+            "value": "7033.0",
+            "count": 42
+          },
+          {
+            "value": "8051.0",
+            "count": 42
+          },
+          {
+            "value": "10755.0",
+            "count": 42
+          },
+          {
+            "value": "8511.0",
+            "count": 42
+          },
+          {
+            "value": "7852.0",
+            "count": 41
+          },
+          {
+            "value": "9121.0",
+            "count": 41
+          }
+        ]
+      },
+      "mitochondrial_fraction": {
+        "column": "mitopercent",
+        "readable_values": true,
+        "n_values": 262956,
+        "n_unique": 245638,
+        "top_values": [
+          {
+            "value": "0.05882352963089943",
+            "count": 49
+          },
+          {
+            "value": "0.0625",
+            "count": 44
+          },
+          {
+            "value": "0.0714285746216774",
+            "count": 37
+          },
+          {
+            "value": "0.06666667014360428",
+            "count": 37
+          },
+          {
+            "value": "0.05263157933950424",
+            "count": 29
+          },
+          {
+            "value": "0.07692307978868484",
+            "count": 28
+          },
+          {
+            "value": "0.06896551698446274",
+            "count": 26
+          },
+          {
+            "value": "0.054054055362939835",
+            "count": 26
+          },
+          {
+            "value": "0.0555555559694767",
+            "count": 25
+          },
+          {
+            "value": "0.06451612710952759",
+            "count": 25
+          }
+        ]
+      }
+    },
+    "has_raw_group": false
+  },
+  {
+    "label": "K562_essential",
+    "file_name": "K562_essential_raw_singlecell_01.h5ad",
+    "file_size_bytes": 10661879995,
+    "top_level_keys": [
+      "X",
+      "obs",
+      "var"
+    ],
+    "x_shape": [
+      310385,
+      8563
+    ],
+    "x_keys": [],
+    "obs_columns": [
+      "UMI_count",
+      "__categories",
+      "cell_barcode",
+      "core_adjusted_UMI_count",
+      "core_scale_factor",
+      "gem_group",
+      "gene",
+      "gene_id",
+      "gene_transcript",
+      "mitopercent",
+      "sgID_AB",
+      "transcript",
+      "z_gemgroup_UMI"
+    ],
+    "var_columns": [
+      "__categories",
+      "chr",
+      "class",
+      "cv",
+      "end",
+      "fano",
+      "gene_id",
+      "gene_name",
+      "in_matrix",
+      "length",
+      "mean",
+      "start",
+      "std",
+      "strand"
+    ],
+    "candidate_columns": {
+      "perturbation": "sgID_AB",
+      "gem_group": "gem_group",
+      "umi": "UMI_count",
+      "mitochondrial_fraction": "mitopercent"
+    },
+    "candidate_column_summaries": {
+      "perturbation": {
+        "column": "sgID_AB",
+        "readable_values": true,
+        "n_values": 310385,
+        "n_unique": 2273,
+        "top_values": [
+          {
+            "value": "1513",
+            "count": 1996
+          },
+          {
+            "value": "1054",
+            "count": 992
+          },
+          {
+            "value": "803",
+            "count": 974
+          },
+          {
+            "value": "1707",
+            "count": 752
+          },
+          {
+            "value": "449",
+            "count": 745
+          },
+          {
+            "value": "1160",
+            "count": 735
+          },
+          {
+            "value": "598",
+            "count": 674
+          },
+          {
+            "value": "140",
+            "count": 648
+          },
+          {
+            "value": "329",
+            "count": 627
+          },
+          {
+            "value": "265",
+            "count": 624
+          }
+        ]
+      },
+      "gem_group": {
+        "column": "gem_group",
+        "readable_values": true,
+        "n_values": 310385,
+        "n_unique": 48,
+        "top_values": [
+          {
+            "value": "31",
+            "count": 7838
+          },
+          {
+            "value": "25",
+            "count": 7776
+          },
+          {
+            "value": "27",
+            "count": 7737
+          },
+          {
+            "value": "30",
+            "count": 7212
+          },
+          {
+            "value": "28",
+            "count": 7148
+          },
+          {
+            "value": "26",
+            "count": 7099
+          },
+          {
+            "value": "8",
+            "count": 7036
+          },
+          {
+            "value": "6",
+            "count": 7019
+          },
+          {
+            "value": "33",
+            "count": 6976
+          },
+          {
+            "value": "41",
+            "count": 6964
+          }
+        ]
+      },
+      "umi": {
+        "column": "UMI_count",
+        "readable_values": true,
+        "n_values": 310385,
+        "n_unique": 28925,
+        "top_values": [
+          {
+            "value": "12504.0",
+            "count": 49
+          },
+          {
+            "value": "12018.0",
+            "count": 48
+          },
+          {
+            "value": "12509.0",
+            "count": 47
+          },
+          {
+            "value": "13772.0",
+            "count": 46
+          },
+          {
+            "value": "12659.0",
+            "count": 45
+          },
+          {
+            "value": "12802.0",
+            "count": 45
+          },
+          {
+            "value": "12207.0",
+            "count": 45
+          },
+          {
+            "value": "11775.0",
+            "count": 44
+          },
+          {
+            "value": "11942.0",
+            "count": 44
+          },
+          {
+            "value": "12454.0",
+            "count": 43
+          }
+        ]
+      },
+      "mitochondrial_fraction": {
+        "column": "mitopercent",
+        "readable_values": true,
+        "n_values": 310385,
+        "n_unique": 298645,
+        "top_values": [
+          {
+            "value": "0.10000000149011612",
+            "count": 42
+          },
+          {
+            "value": "0.1111111119389534",
+            "count": 42
+          },
+          {
+            "value": "0.125",
+            "count": 39
+          },
+          {
+            "value": "0.10526315867900848",
+            "count": 29
+          },
+          {
+            "value": "0.09090909361839294",
+            "count": 25
+          },
+          {
+            "value": "0.0833333358168602",
+            "count": 20
+          },
+          {
+            "value": "0.07692307978868484",
+            "count": 19
+          },
+          {
+            "value": "0.1071428582072258",
+            "count": 19
+          },
+          {
+            "value": "0.11538461595773697",
+            "count": 18
+          },
+          {
+            "value": "0.1428571492433548",
+            "count": 17
+          }
+        ]
+      }
+    },
+    "has_raw_group": false
+  },
+  {
+    "label": "RPE1",
+    "file_name": "rpe1_raw_singlecell_01.h5ad",
+    "file_size_bytes": 8700873216,
+    "top_level_keys": [
+      "X",
+      "obs",
+      "var"
+    ],
+    "x_shape": [
+      247914,
+      8749
+    ],
+    "x_keys": [],
+    "obs_columns": [
+      "UMI_count",
+      "__categories",
+      "cell_barcode",
+      "core_adjusted_UMI_count",
+      "core_scale_factor",
+      "gem_group",
+      "gene",
+      "gene_id",
+      "gene_transcript",
+      "mitopercent",
+      "sgID_AB",
+      "transcript",
+      "z_gemgroup_UMI"
+    ],
+    "var_columns": [
+      "__categories",
+      "chr",
+      "class",
+      "cv",
+      "end",
+      "fano",
+      "gene_id",
+      "gene_name",
+      "in_matrix",
+      "length",
+      "mean",
+      "start",
+      "std",
+      "strand"
+    ],
+    "candidate_columns": {
+      "perturbation": "sgID_AB",
+      "gem_group": "gem_group",
+      "umi": "UMI_count",
+      "mitochondrial_fraction": "mitopercent"
+    },
+    "candidate_column_summaries": {
+      "perturbation": {
+        "column": "sgID_AB",
+        "readable_values": true,
+        "n_values": 247914,
+        "n_unique": 2662,
+        "top_values": [
+          {
+            "value": "2179",
+            "count": 3580
+          },
+          {
+            "value": "1971",
+            "count": 1779
+          },
+          {
+            "value": "741",
+            "count": 1699
+          },
+          {
+            "value": "1170",
+            "count": 1686
+          },
+          {
+            "value": "2149",
+            "count": 1675
+          },
+          {
+            "value": "1581",
+            "count": 1581
+          },
+          {
+            "value": "1169",
+            "count": 1491
+          },
+          {
+            "value": "1260",
+            "count": 1159
+          },
+          {
+            "value": "802",
+            "count": 942
+          },
+          {
+            "value": "1229",
+            "count": 894
+          }
+        ]
+      },
+      "gem_group": {
+        "column": "gem_group",
+        "readable_values": true,
+        "n_values": 247914,
+        "n_unique": 56,
+        "top_values": [
+          {
+            "value": "55",
+            "count": 5567
+          },
+          {
+            "value": "44",
+            "count": 5429
+          },
+          {
+            "value": "20",
+            "count": 5282
+          },
+          {
+            "value": "12",
+            "count": 5220
+          },
+          {
+            "value": "22",
+            "count": 5212
+          },
+          {
+            "value": "25",
+            "count": 5146
+          },
+          {
+            "value": "34",
+            "count": 5094
+          },
+          {
+            "value": "13",
+            "count": 5085
+          },
+          {
+            "value": "38",
+            "count": 5029
+          },
+          {
+            "value": "11",
+            "count": 4983
+          }
+        ]
+      },
+      "umi": {
+        "column": "UMI_count",
+        "readable_values": true,
+        "n_values": 247914,
+        "n_unique": 31699,
+        "top_values": [
+          {
+            "value": "9801.0",
+            "count": 40
+          },
+          {
+            "value": "9879.0",
+            "count": 40
+          },
+          {
+            "value": "11350.0",
+            "count": 39
+          },
+          {
+            "value": "9414.0",
+            "count": 38
+          },
+          {
+            "value": "9933.0",
+            "count": 37
+          },
+          {
+            "value": "10367.0",
+            "count": 37
+          },
+          {
+            "value": "10658.0",
+            "count": 37
+          },
+          {
+            "value": "11758.0",
+            "count": 37
+          },
+          {
+            "value": "11251.0",
+            "count": 36
+          },
+          {
+            "value": "10957.0",
+            "count": 36
+          }
+        ]
+      },
+      "mitochondrial_fraction": {
+        "column": "mitopercent",
+        "readable_values": true,
+        "n_values": 247914,
+        "n_unique": 233450,
+        "top_values": [
+          {
+            "value": "0.0625",
+            "count": 52
+          },
+          {
+            "value": "0.05882352963089943",
+            "count": 52
+          },
+          {
+            "value": "0.06666667014360428",
+            "count": 35
+          },
+          {
+            "value": "0.07692307978868484",
+            "count": 34
+          },
+          {
+            "value": "0.0555555559694767",
+            "count": 32
+          },
+          {
+            "value": "0.05263157933950424",
+            "count": 28
+          },
+          {
+            "value": "0.06382978707551956",
+            "count": 26
+          },
+          {
+            "value": "0.0714285746216774",
+            "count": 24
+          },
+          {
+            "value": "0.05714285746216774",
+            "count": 23
+          },
+          {
+            "value": "0.057692307978868484",
+            "count": 22
+          }
+        ]
+      }
+    },
+    "has_raw_group": false
+  }
+]

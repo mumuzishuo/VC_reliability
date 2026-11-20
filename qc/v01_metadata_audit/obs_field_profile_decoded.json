@@ -1,0 +1,2758 @@
+[
+  {
+    "label": "HepG2",
+    "file_name": "GSE264667_hepg2_raw_singlecell_01.h5ad",
+    "file_size_bytes": 5614460941,
+    "obs_columns": [
+      "UMI_count",
+      "__categories",
+      "cell_barcode",
+      "gem_group",
+      "gene",
+      "gene_id",
+      "gene_transcript",
+      "mitopercent",
+      "sgID_AB",
+      "transcript",
+      "z_gemgroup_UMI"
+    ],
+    "resolved_columns": {
+      "sgID_AB": "sgID_AB",
+      "gene": "gene",
+      "gene_id": "gene_id",
+      "gem_group": "gem_group",
+      "UMI_count": "UMI_count",
+      "mitopercent": "mitopercent",
+      "batch": null,
+      "sample": null,
+      "donor": null
+    },
+    "column_summaries": {
+      "sgID_AB": {
+        "actual_column": "sgID_AB",
+        "n_values": 145473,
+        "n_missing": 0,
+        "n_unique": 2679,
+        "top_values": [
+          {
+            "value": "TFAM_+_60145205.23-P1P2|TFAM_-_60145223.23-P1P2",
+            "count": 1213
+          },
+          {
+            "value": "GFM1_-_158362387.23-P1P2|GFM1_+_158362379.23-P1P2",
+            "count": 749
+          },
+          {
+            "value": "SLC1A5_+_47291839.23-P1|SLC1A5_+_47291829.23-P1",
+            "count": 597
+          },
+          {
+            "value": "GTF3C4_+_135545609.23-P1P2|GTF3C4_-_135545497.23-P1P2",
+            "count": 536
+          },
+          {
+            "value": "GTF2E2_-_30515502.23-P1P2|GTF2E2_+_30515555.23-P1P2",
+            "count": 476
+          },
+          {
+            "value": "PPP6C_-_127952026.23-P1P2|PPP6C_+_127951685.23-P1P2",
+            "count": 459
+          },
+          {
+            "value": "SMN2_-_69345531.23-ENST00000380743.4|SMN2_+_69345485.23-ENST00000380743.4",
+            "count": 452
+          },
+          {
+            "value": "EIF3CL_+_28415115.23-ENST00000380876.4-ENST00000398943.3-ENST00000398944.3|EIF3CL_-_28415135.23-ENST00000380876.4-ENST00000398943.3-ENST00000398944.3",
+            "count": 435
+          },
+          {
+            "value": "NBPF12_+_146373532.23-P1P2|NBPF12_-_146373567.23-P1P2",
+            "count": 432
+          },
+          {
+            "value": "MRPL36_+_1799909.23-P1P2|MRPL36_+_1799899.23-P1P2",
+            "count": 430
+          },
+          {
+            "value": "MRPL34_-_17416686.23-P1P2|MRPL34_+_17416659.23-P1P2",
+            "count": 414
+          },
+          {
+            "value": "ZDHHC7_-_85045072.23-P1P2|ZDHHC7_+_85045041.23-P1P2",
+            "count": 357
+          },
+          {
+            "value": "GAB2_-_78128828.23-P1P2|GAB2_-_78128897.23-P1P2",
+            "count": 355
+          },
+          {
+            "value": "SART3_+_108954728.23-P1P2|SART3_+_108954905.23-P1P2",
+            "count": 355
+          },
+          {
+            "value": "SLU7_+_159846048.23-P1P2|SLU7_+_159846060.23-P1P2",
+            "count": 342
+          },
+          {
+            "value": "MRPL35_+_86426814.23-P1P2|MRPL35_-_86426601.23-P1P2",
+            "count": 333
+          },
+          {
+            "value": "SF3B3_-_70557770.23-P1P2|SF3B3_-_70558137.23-P1P2",
+            "count": 326
+          },
+          {
+            "value": "GPS1_+_80010011.23-P1P2|GPS1_-_80009799.23-P1P2",
+            "count": 317
+          },
+          {
+            "value": "BCAR1_+_75299843.23-P2|BCAR1_+_75299852.23-P2",
+            "count": 301
+          },
+          {
+            "value": "CCDC6_-_61666340.23-P1P2|CCDC6_+_61666039.23-P1P2",
+            "count": 280
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gene": {
+        "actual_column": "gene",
+        "n_values": 145473,
+        "n_missing": 0,
+        "n_unique": 2394,
+        "top_values": [
+          {
+            "value": "non-targeting",
+            "count": 4976
+          },
+          {
+            "value": "TFAM",
+            "count": 1213
+          },
+          {
+            "value": "GFM1",
+            "count": 749
+          },
+          {
+            "value": "SLC1A5",
+            "count": 631
+          },
+          {
+            "value": "GTF3C4",
+            "count": 536
+          },
+          {
+            "value": "GTF2E2",
+            "count": 476
+          },
+          {
+            "value": "ZDHHC7",
+            "count": 466
+          },
+          {
+            "value": "PPP6C",
+            "count": 459
+          },
+          {
+            "value": "SMN2",
+            "count": 452
+          },
+          {
+            "value": "EIF3CL",
+            "count": 435
+          },
+          {
+            "value": "NBPF12",
+            "count": 432
+          },
+          {
+            "value": "MRPL36",
+            "count": 430
+          },
+          {
+            "value": "MRPL34",
+            "count": 414
+          },
+          {
+            "value": "CCDC6",
+            "count": 413
+          },
+          {
+            "value": "POGLUT3",
+            "count": 386
+          },
+          {
+            "value": "GAB2",
+            "count": 355
+          },
+          {
+            "value": "SART3",
+            "count": 355
+          },
+          {
+            "value": "BCAR1",
+            "count": 346
+          },
+          {
+            "value": "SLU7",
+            "count": 342
+          },
+          {
+            "value": "MRPL35",
+            "count": 333
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gene_id": {
+        "actual_column": "gene_id",
+        "n_values": 145473,
+        "n_missing": 359,
+        "n_unique": 2392,
+        "top_values": [
+          {
+            "value": "non-targeting",
+            "count": 4976
+          },
+          {
+            "value": "ENSG00000108064",
+            "count": 1213
+          },
+          {
+            "value": "ENSG00000168827",
+            "count": 749
+          },
+          {
+            "value": "ENSG00000105281",
+            "count": 631
+          },
+          {
+            "value": "ENSG00000125484",
+            "count": 536
+          },
+          {
+            "value": "ENSG00000197265",
+            "count": 476
+          },
+          {
+            "value": "ENSG00000153786",
+            "count": 466
+          },
+          {
+            "value": "ENSG00000119414",
+            "count": 459
+          },
+          {
+            "value": "ENSG00000205571",
+            "count": 452
+          },
+          {
+            "value": "ENSG00000205609",
+            "count": 435
+          },
+          {
+            "value": "ENSG00000268043",
+            "count": 432
+          },
+          {
+            "value": "ENSG00000171421",
+            "count": 430
+          },
+          {
+            "value": "ENSG00000130312",
+            "count": 414
+          },
+          {
+            "value": "ENSG00000108091",
+            "count": 413
+          },
+          {
+            "value": "ENSG00000178202",
+            "count": 386
+          },
+          {
+            "value": "nan",
+            "count": 359
+          },
+          {
+            "value": "ENSG00000033327",
+            "count": 355
+          },
+          {
+            "value": "ENSG00000075856",
+            "count": 355
+          },
+          {
+            "value": "ENSG00000050820",
+            "count": 346
+          },
+          {
+            "value": "ENSG00000164609",
+            "count": 342
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gem_group": {
+        "actual_column": "gem_group",
+        "n_values": 145473,
+        "n_missing": 0,
+        "n_unique": 56,
+        "top_values": [
+          {
+            "value": "18",
+            "count": 3513
+          },
+          {
+            "value": "7",
+            "count": 3295
+          },
+          {
+            "value": "38",
+            "count": 3238
+          },
+          {
+            "value": "3",
+            "count": 3226
+          },
+          {
+            "value": "20",
+            "count": 3199
+          },
+          {
+            "value": "12",
+            "count": 3159
+          },
+          {
+            "value": "55",
+            "count": 3137
+          },
+          {
+            "value": "44",
+            "count": 3103
+          },
+          {
+            "value": "14",
+            "count": 3099
+          },
+          {
+            "value": "25",
+            "count": 3089
+          },
+          {
+            "value": "43",
+            "count": 3021
+          },
+          {
+            "value": "29",
+            "count": 3017
+          },
+          {
+            "value": "40",
+            "count": 2962
+          },
+          {
+            "value": "52",
+            "count": 2916
+          },
+          {
+            "value": "39",
+            "count": 2914
+          },
+          {
+            "value": "16",
+            "count": 2904
+          },
+          {
+            "value": "49",
+            "count": 2876
+          },
+          {
+            "value": "11",
+            "count": 2826
+          },
+          {
+            "value": "34",
+            "count": 2793
+          },
+          {
+            "value": "5",
+            "count": 2791
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 1.0,
+          "maximum": 56.0,
+          "mean": 27.979728196985008,
+          "median": 28.0
+        }
+      },
+      "UMI_count": {
+        "actual_column": "UMI_count",
+        "n_values": 145473,
+        "n_missing": 0,
+        "n_unique": 38700,
+        "top_values": [
+          {
+            "value": "12453.0",
+            "count": 21
+          },
+          {
+            "value": "12998.0",
+            "count": 21
+          },
+          {
+            "value": "12267.0",
+            "count": 21
+          },
+          {
+            "value": "11563.0",
+            "count": 20
+          },
+          {
+            "value": "11613.0",
+            "count": 20
+          },
+          {
+            "value": "11358.0",
+            "count": 19
+          },
+          {
+            "value": "11806.0",
+            "count": 19
+          },
+          {
+            "value": "12597.0",
+            "count": 19
+          },
+          {
+            "value": "13648.0",
+            "count": 19
+          },
+          {
+            "value": "12543.0",
+            "count": 19
+          },
+          {
+            "value": "13017.0",
+            "count": 19
+          },
+          {
+            "value": "10966.0",
+            "count": 18
+          },
+          {
+            "value": "13404.0",
+            "count": 18
+          },
+          {
+            "value": "11795.0",
+            "count": 18
+          },
+          {
+            "value": "11813.0",
+            "count": 18
+          },
+          {
+            "value": "12439.0",
+            "count": 18
+          },
+          {
+            "value": "12051.0",
+            "count": 18
+          },
+          {
+            "value": "12788.0",
+            "count": 18
+          },
+          {
+            "value": "9741.0",
+            "count": 18
+          },
+          {
+            "value": "12076.0",
+            "count": 18
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 3001.0,
+          "maximum": 144531.0,
+          "mean": 18801.167226908085,
+          "median": 15641.0
+        }
+      },
+      "mitopercent": {
+        "actual_column": "mitopercent",
+        "n_values": 145473,
+        "n_missing": 0,
+        "n_unique": 142677,
+        "top_values": [
+          {
+            "value": "0.10000000149011612",
+            "count": 27
+          },
+          {
+            "value": "0.0833333358168602",
+            "count": 16
+          },
+          {
+            "value": "0.09090909361839294",
+            "count": 16
+          },
+          {
+            "value": "0.10526315867900848",
+            "count": 14
+          },
+          {
+            "value": "0.1111111119389534",
+            "count": 12
+          },
+          {
+            "value": "0.095238097012043",
+            "count": 10
+          },
+          {
+            "value": "0.08571428805589676",
+            "count": 9
+          },
+          {
+            "value": "0.07692307978868484",
+            "count": 8
+          },
+          {
+            "value": "0.08695652335882187",
+            "count": 8
+          },
+          {
+            "value": "0.09756097197532654",
+            "count": 7
+          },
+          {
+            "value": "0.06666667014360428",
+            "count": 7
+          },
+          {
+            "value": "0.08888889104127884",
+            "count": 7
+          },
+          {
+            "value": "0.0882352963089943",
+            "count": 7
+          },
+          {
+            "value": "0.09782608598470688",
+            "count": 7
+          },
+          {
+            "value": "0.09302325546741486",
+            "count": 7
+          },
+          {
+            "value": "0.0793650820851326",
+            "count": 6
+          },
+          {
+            "value": "0.10185185074806213",
+            "count": 6
+          },
+          {
+            "value": "0.10256410390138626",
+            "count": 6
+          },
+          {
+            "value": "0.09433962404727936",
+            "count": 6
+          },
+          {
+            "value": "0.0731707289814949",
+            "count": 6
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 0.0,
+          "maximum": 0.17997707426548004,
+          "mean": 0.09326726406589785,
+          "median": 0.09273555129766464
+        }
+      }
+    },
+    "sgID_AB_mapping": {
+      "n_unique_label_gene_pairs": 2679,
+      "n_labels_with_multiple_gene_values": 0,
+      "n_genes_with_multiple_labels": 136,
+      "top_label_gene_pairs": [
+        {
+          "label": "TFAM_+_60145205.23-P1P2|TFAM_-_60145223.23-P1P2",
+          "gene": "TFAM",
+          "count": 1213
+        },
+        {
+          "label": "GFM1_-_158362387.23-P1P2|GFM1_+_158362379.23-P1P2",
+          "gene": "GFM1",
+          "count": 749
+        },
+        {
+          "label": "SLC1A5_+_47291839.23-P1|SLC1A5_+_47291829.23-P1",
+          "gene": "SLC1A5",
+          "count": 597
+        },
+        {
+          "label": "GTF3C4_+_135545609.23-P1P2|GTF3C4_-_135545497.23-P1P2",
+          "gene": "GTF3C4",
+          "count": 536
+        },
+        {
+          "label": "GTF2E2_-_30515502.23-P1P2|GTF2E2_+_30515555.23-P1P2",
+          "gene": "GTF2E2",
+          "count": 476
+        },
+        {
+          "label": "PPP6C_-_127952026.23-P1P2|PPP6C_+_127951685.23-P1P2",
+          "gene": "PPP6C",
+          "count": 459
+        },
+        {
+          "label": "SMN2_-_69345531.23-ENST00000380743.4|SMN2_+_69345485.23-ENST00000380743.4",
+          "gene": "SMN2",
+          "count": 452
+        },
+        {
+          "label": "EIF3CL_+_28415115.23-ENST00000380876.4-ENST00000398943.3-ENST00000398944.3|EIF3CL_-_28415135.23-ENST00000380876.4-ENST00000398943.3-ENST00000398944.3",
+          "gene": "EIF3CL",
+          "count": 435
+        },
+        {
+          "label": "NBPF12_+_146373532.23-P1P2|NBPF12_-_146373567.23-P1P2",
+          "gene": "NBPF12",
+          "count": 432
+        },
+        {
+          "label": "MRPL36_+_1799909.23-P1P2|MRPL36_+_1799899.23-P1P2",
+          "gene": "MRPL36",
+          "count": 430
+        },
+        {
+          "label": "MRPL34_-_17416686.23-P1P2|MRPL34_+_17416659.23-P1P2",
+          "gene": "MRPL34",
+          "count": 414
+        },
+        {
+          "label": "ZDHHC7_-_85045072.23-P1P2|ZDHHC7_+_85045041.23-P1P2",
+          "gene": "ZDHHC7",
+          "count": 357
+        },
+        {
+          "label": "GAB2_-_78128828.23-P1P2|GAB2_-_78128897.23-P1P2",
+          "gene": "GAB2",
+          "count": 355
+        },
+        {
+          "label": "SART3_+_108954728.23-P1P2|SART3_+_108954905.23-P1P2",
+          "gene": "SART3",
+          "count": 355
+        },
+        {
+          "label": "SLU7_+_159846048.23-P1P2|SLU7_+_159846060.23-P1P2",
+          "gene": "SLU7",
+          "count": 342
+        },
+        {
+          "label": "MRPL35_+_86426814.23-P1P2|MRPL35_-_86426601.23-P1P2",
+          "gene": "MRPL35",
+          "count": 333
+        },
+        {
+          "label": "SF3B3_-_70557770.23-P1P2|SF3B3_-_70558137.23-P1P2",
+          "gene": "SF3B3",
+          "count": 326
+        },
+        {
+          "label": "GPS1_+_80010011.23-P1P2|GPS1_-_80009799.23-P1P2",
+          "gene": "GPS1",
+          "count": 317
+        },
+        {
+          "label": "BCAR1_+_75299843.23-P2|BCAR1_+_75299852.23-P2",
+          "gene": "BCAR1",
+          "count": 301
+        },
+        {
+          "label": "CCDC6_-_61666340.23-P1P2|CCDC6_+_61666039.23-P1P2",
+          "gene": "CCDC6",
+          "count": 280
+        }
+      ],
+      "n_unique_label_gene_id_pairs": 2679
+    }
+  },
+  {
+    "label": "Jurkat",
+    "file_name": "GSE264667_jurkat_raw_singlecell_01.h5ad",
+    "file_size_bytes": 9366490264,
+    "obs_columns": [
+      "UMI_count",
+      "__categories",
+      "cell_barcode",
+      "gem_group",
+      "gene",
+      "gene_id",
+      "gene_transcript",
+      "mitopercent",
+      "sgID_AB",
+      "transcript",
+      "z_gemgroup_UMI"
+    ],
+    "resolved_columns": {
+      "sgID_AB": "sgID_AB",
+      "gene": "gene",
+      "gene_id": "gene_id",
+      "gem_group": "gem_group",
+      "UMI_count": "UMI_count",
+      "mitopercent": "mitopercent",
+      "batch": null,
+      "sample": null,
+      "donor": null
+    },
+    "column_summaries": {
+      "sgID_AB": {
+        "actual_column": "sgID_AB",
+        "n_values": 262956,
+        "n_missing": 0,
+        "n_unique": 2679,
+        "top_values": [
+          {
+            "value": "TFAM_+_60145205.23-P1P2|TFAM_-_60145223.23-P1P2",
+            "count": 2555
+          },
+          {
+            "value": "SLC1A5_+_47291839.23-P1|SLC1A5_+_47291829.23-P1",
+            "count": 1633
+          },
+          {
+            "value": "GFM1_-_158362387.23-P1P2|GFM1_+_158362379.23-P1P2",
+            "count": 1382
+          },
+          {
+            "value": "GTF3C4_+_135545609.23-P1P2|GTF3C4_-_135545497.23-P1P2",
+            "count": 1294
+          },
+          {
+            "value": "PSMB5_+_23504053.23-P1P2|PSMB5_-_23504062.23-P1P2",
+            "count": 1243
+          },
+          {
+            "value": "MRPL36_+_1799909.23-P1P2|MRPL36_+_1799899.23-P1P2",
+            "count": 1192
+          },
+          {
+            "value": "PPP6C_-_127952026.23-P1P2|PPP6C_+_127951685.23-P1P2",
+            "count": 1186
+          },
+          {
+            "value": "NBPF12_+_146373532.23-P1P2|NBPF12_-_146373567.23-P1P2",
+            "count": 1142
+          },
+          {
+            "value": "MRPL35_+_86426814.23-P1P2|MRPL35_-_86426601.23-P1P2",
+            "count": 998
+          },
+          {
+            "value": "TARDBP_-_11072919.23-P1P2|TARDBP_+_11072781.23-P1P2",
+            "count": 827
+          },
+          {
+            "value": "MRPL34_-_17416686.23-P1P2|MRPL34_+_17416659.23-P1P2",
+            "count": 798
+          },
+          {
+            "value": "GTF2E2_-_30515502.23-P1P2|GTF2E2_+_30515555.23-P1P2",
+            "count": 744
+          },
+          {
+            "value": "GAB2_-_78128828.23-P1P2|GAB2_-_78128897.23-P1P2",
+            "count": 691
+          },
+          {
+            "value": "BCAR1_+_75299843.23-P2|BCAR1_+_75299852.23-P2",
+            "count": 687
+          },
+          {
+            "value": "HSD17B10_-_53461314.23-P1P2|HSD17B10_+_53461288.23-P1P2",
+            "count": 669
+          },
+          {
+            "value": "TRNT1_-_3168701.23-P1P2|TRNT1_+_3168671.23-P1P2",
+            "count": 663
+          },
+          {
+            "value": "THAP1_+_42698211.23-P1P2|THAP1_-_42698019.23-P1P2",
+            "count": 637
+          },
+          {
+            "value": "TWF1_-_44199727.23-P1P2|TWF1_+_44199942.23-P1P2",
+            "count": 612
+          },
+          {
+            "value": "CCDC6_-_61666340.23-P1P2|CCDC6_+_61666039.23-P1P2",
+            "count": 516
+          },
+          {
+            "value": "CCDC78_-_776828.23-P1P2|CCDC78_-_776428.23-P1P2",
+            "count": 514
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gene": {
+        "actual_column": "gene",
+        "n_values": 262956,
+        "n_missing": 0,
+        "n_unique": 2394,
+        "top_values": [
+          {
+            "value": "non-targeting",
+            "count": 12013
+          },
+          {
+            "value": "TFAM",
+            "count": 2555
+          },
+          {
+            "value": "SLC1A5",
+            "count": 1740
+          },
+          {
+            "value": "GFM1",
+            "count": 1382
+          },
+          {
+            "value": "GTF3C4",
+            "count": 1294
+          },
+          {
+            "value": "PSMB5",
+            "count": 1243
+          },
+          {
+            "value": "MRPL36",
+            "count": 1192
+          },
+          {
+            "value": "PPP6C",
+            "count": 1186
+          },
+          {
+            "value": "NBPF12",
+            "count": 1142
+          },
+          {
+            "value": "MRPL35",
+            "count": 998
+          },
+          {
+            "value": "POGLUT3",
+            "count": 979
+          },
+          {
+            "value": "TARDBP",
+            "count": 827
+          },
+          {
+            "value": "MRPL34",
+            "count": 798
+          },
+          {
+            "value": "CCDC6",
+            "count": 796
+          },
+          {
+            "value": "BCAR1",
+            "count": 782
+          },
+          {
+            "value": "GTF2E2",
+            "count": 744
+          },
+          {
+            "value": "GAB2",
+            "count": 691
+          },
+          {
+            "value": "HSD17B10",
+            "count": 669
+          },
+          {
+            "value": "TRNT1",
+            "count": 663
+          },
+          {
+            "value": "THAP1",
+            "count": 637
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gene_id": {
+        "actual_column": "gene_id",
+        "n_values": 262956,
+        "n_missing": 449,
+        "n_unique": 2392,
+        "top_values": [
+          {
+            "value": "non-targeting",
+            "count": 12013
+          },
+          {
+            "value": "ENSG00000108064",
+            "count": 2555
+          },
+          {
+            "value": "ENSG00000105281",
+            "count": 1740
+          },
+          {
+            "value": "ENSG00000168827",
+            "count": 1382
+          },
+          {
+            "value": "ENSG00000125484",
+            "count": 1294
+          },
+          {
+            "value": "ENSG00000100804",
+            "count": 1243
+          },
+          {
+            "value": "ENSG00000171421",
+            "count": 1192
+          },
+          {
+            "value": "ENSG00000119414",
+            "count": 1186
+          },
+          {
+            "value": "ENSG00000268043",
+            "count": 1142
+          },
+          {
+            "value": "ENSG00000132313",
+            "count": 998
+          },
+          {
+            "value": "ENSG00000178202",
+            "count": 979
+          },
+          {
+            "value": "ENSG00000120948",
+            "count": 827
+          },
+          {
+            "value": "ENSG00000130312",
+            "count": 798
+          },
+          {
+            "value": "ENSG00000108091",
+            "count": 796
+          },
+          {
+            "value": "ENSG00000050820",
+            "count": 782
+          },
+          {
+            "value": "ENSG00000197265",
+            "count": 744
+          },
+          {
+            "value": "ENSG00000033327",
+            "count": 691
+          },
+          {
+            "value": "ENSG00000072506",
+            "count": 669
+          },
+          {
+            "value": "ENSG00000072756",
+            "count": 663
+          },
+          {
+            "value": "ENSG00000131931",
+            "count": 637
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gem_group": {
+        "actual_column": "gem_group",
+        "n_values": 262956,
+        "n_missing": 0,
+        "n_unique": 55,
+        "top_values": [
+          {
+            "value": "44",
+            "count": 5936
+          },
+          {
+            "value": "3",
+            "count": 5847
+          },
+          {
+            "value": "7",
+            "count": 5743
+          },
+          {
+            "value": "12",
+            "count": 5711
+          },
+          {
+            "value": "5",
+            "count": 5618
+          },
+          {
+            "value": "25",
+            "count": 5517
+          },
+          {
+            "value": "47",
+            "count": 5498
+          },
+          {
+            "value": "29",
+            "count": 5467
+          },
+          {
+            "value": "2",
+            "count": 5466
+          },
+          {
+            "value": "55",
+            "count": 5377
+          },
+          {
+            "value": "4",
+            "count": 5349
+          },
+          {
+            "value": "53",
+            "count": 5343
+          },
+          {
+            "value": "22",
+            "count": 5280
+          },
+          {
+            "value": "16",
+            "count": 5243
+          },
+          {
+            "value": "39",
+            "count": 5237
+          },
+          {
+            "value": "24",
+            "count": 5232
+          },
+          {
+            "value": "30",
+            "count": 5196
+          },
+          {
+            "value": "33",
+            "count": 5184
+          },
+          {
+            "value": "56",
+            "count": 5164
+          },
+          {
+            "value": "34",
+            "count": 5112
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 1.0,
+          "maximum": 56.0,
+          "mean": 28.10702170705365,
+          "median": 28.0
+        }
+      },
+      "UMI_count": {
+        "actual_column": "UMI_count",
+        "n_values": 262956,
+        "n_missing": 0,
+        "n_unique": 32846,
+        "top_values": [
+          {
+            "value": "8357.0",
+            "count": 49
+          },
+          {
+            "value": "10732.0",
+            "count": 43
+          },
+          {
+            "value": "8556.0",
+            "count": 43
+          },
+          {
+            "value": "8968.0",
+            "count": 42
+          },
+          {
+            "value": "7033.0",
+            "count": 42
+          },
+          {
+            "value": "8051.0",
+            "count": 42
+          },
+          {
+            "value": "10755.0",
+            "count": 42
+          },
+          {
+            "value": "8511.0",
+            "count": 42
+          },
+          {
+            "value": "7852.0",
+            "count": 41
+          },
+          {
+            "value": "9121.0",
+            "count": 41
+          },
+          {
+            "value": "8939.0",
+            "count": 41
+          },
+          {
+            "value": "9134.0",
+            "count": 40
+          },
+          {
+            "value": "7483.0",
+            "count": 39
+          },
+          {
+            "value": "8846.0",
+            "count": 39
+          },
+          {
+            "value": "8851.0",
+            "count": 39
+          },
+          {
+            "value": "7664.0",
+            "count": 39
+          },
+          {
+            "value": "7948.0",
+            "count": 39
+          },
+          {
+            "value": "8988.0",
+            "count": 39
+          },
+          {
+            "value": "8400.0",
+            "count": 39
+          },
+          {
+            "value": "7953.0",
+            "count": 39
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 1751.0,
+          "maximum": 211897.0,
+          "mean": 11988.723535496432,
+          "median": 10160.0
+        }
+      },
+      "mitopercent": {
+        "actual_column": "mitopercent",
+        "n_values": 262956,
+        "n_missing": 0,
+        "n_unique": 245638,
+        "top_values": [
+          {
+            "value": "0.05882352963089943",
+            "count": 49
+          },
+          {
+            "value": "0.0625",
+            "count": 44
+          },
+          {
+            "value": "0.0714285746216774",
+            "count": 37
+          },
+          {
+            "value": "0.06666667014360428",
+            "count": 37
+          },
+          {
+            "value": "0.05263157933950424",
+            "count": 29
+          },
+          {
+            "value": "0.07692307978868484",
+            "count": 28
+          },
+          {
+            "value": "0.06896551698446274",
+            "count": 26
+          },
+          {
+            "value": "0.054054055362939835",
+            "count": 26
+          },
+          {
+            "value": "0.0555555559694767",
+            "count": 25
+          },
+          {
+            "value": "0.06451612710952759",
+            "count": 25
+          },
+          {
+            "value": "0.05000000074505806",
+            "count": 24
+          },
+          {
+            "value": "0.0",
+            "count": 23
+          },
+          {
+            "value": "0.06060606241226196",
+            "count": 23
+          },
+          {
+            "value": "0.0833333358168602",
+            "count": 21
+          },
+          {
+            "value": "0.05714285746216774",
+            "count": 20
+          },
+          {
+            "value": "0.0476190485060215",
+            "count": 19
+          },
+          {
+            "value": "0.057692307978868484",
+            "count": 19
+          },
+          {
+            "value": "0.05128205195069313",
+            "count": 19
+          },
+          {
+            "value": "0.07407407462596893",
+            "count": 19
+          },
+          {
+            "value": "0.06521739065647125",
+            "count": 16
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 0.0,
+          "maximum": 0.13995984196662903,
+          "mean": 0.06278496150325778,
+          "median": 0.06284653395414352
+        }
+      }
+    },
+    "sgID_AB_mapping": {
+      "n_unique_label_gene_pairs": 2679,
+      "n_labels_with_multiple_gene_values": 0,
+      "n_genes_with_multiple_labels": 136,
+      "top_label_gene_pairs": [
+        {
+          "label": "TFAM_+_60145205.23-P1P2|TFAM_-_60145223.23-P1P2",
+          "gene": "TFAM",
+          "count": 2555
+        },
+        {
+          "label": "SLC1A5_+_47291839.23-P1|SLC1A5_+_47291829.23-P1",
+          "gene": "SLC1A5",
+          "count": 1633
+        },
+        {
+          "label": "GFM1_-_158362387.23-P1P2|GFM1_+_158362379.23-P1P2",
+          "gene": "GFM1",
+          "count": 1382
+        },
+        {
+          "label": "GTF3C4_+_135545609.23-P1P2|GTF3C4_-_135545497.23-P1P2",
+          "gene": "GTF3C4",
+          "count": 1294
+        },
+        {
+          "label": "PSMB5_+_23504053.23-P1P2|PSMB5_-_23504062.23-P1P2",
+          "gene": "PSMB5",
+          "count": 1243
+        },
+        {
+          "label": "MRPL36_+_1799909.23-P1P2|MRPL36_+_1799899.23-P1P2",
+          "gene": "MRPL36",
+          "count": 1192
+        },
+        {
+          "label": "PPP6C_-_127952026.23-P1P2|PPP6C_+_127951685.23-P1P2",
+          "gene": "PPP6C",
+          "count": 1186
+        },
+        {
+          "label": "NBPF12_+_146373532.23-P1P2|NBPF12_-_146373567.23-P1P2",
+          "gene": "NBPF12",
+          "count": 1142
+        },
+        {
+          "label": "MRPL35_+_86426814.23-P1P2|MRPL35_-_86426601.23-P1P2",
+          "gene": "MRPL35",
+          "count": 998
+        },
+        {
+          "label": "TARDBP_-_11072919.23-P1P2|TARDBP_+_11072781.23-P1P2",
+          "gene": "TARDBP",
+          "count": 827
+        },
+        {
+          "label": "MRPL34_-_17416686.23-P1P2|MRPL34_+_17416659.23-P1P2",
+          "gene": "MRPL34",
+          "count": 798
+        },
+        {
+          "label": "GTF2E2_-_30515502.23-P1P2|GTF2E2_+_30515555.23-P1P2",
+          "gene": "GTF2E2",
+          "count": 744
+        },
+        {
+          "label": "GAB2_-_78128828.23-P1P2|GAB2_-_78128897.23-P1P2",
+          "gene": "GAB2",
+          "count": 691
+        },
+        {
+          "label": "BCAR1_+_75299843.23-P2|BCAR1_+_75299852.23-P2",
+          "gene": "BCAR1",
+          "count": 687
+        },
+        {
+          "label": "HSD17B10_-_53461314.23-P1P2|HSD17B10_+_53461288.23-P1P2",
+          "gene": "HSD17B10",
+          "count": 669
+        },
+        {
+          "label": "TRNT1_-_3168701.23-P1P2|TRNT1_+_3168671.23-P1P2",
+          "gene": "TRNT1",
+          "count": 663
+        },
+        {
+          "label": "THAP1_+_42698211.23-P1P2|THAP1_-_42698019.23-P1P2",
+          "gene": "THAP1",
+          "count": 637
+        },
+        {
+          "label": "TWF1_-_44199727.23-P1P2|TWF1_+_44199942.23-P1P2",
+          "gene": "TWF1",
+          "count": 612
+        },
+        {
+          "label": "CCDC6_-_61666340.23-P1P2|CCDC6_+_61666039.23-P1P2",
+          "gene": "CCDC6",
+          "count": 516
+        },
+        {
+          "label": "CCDC78_-_776828.23-P1P2|CCDC78_-_776428.23-P1P2",
+          "gene": "CCDC78",
+          "count": 514
+        }
+      ],
+      "n_unique_label_gene_id_pairs": 2679
+    }
+  },
+  {
+    "label": "K562_essential",
+    "file_name": "K562_essential_raw_singlecell_01.h5ad",
+    "file_size_bytes": 10661879995,
+    "obs_columns": [
+      "UMI_count",
+      "__categories",
+      "cell_barcode",
+      "core_adjusted_UMI_count",
+      "core_scale_factor",
+      "gem_group",
+      "gene",
+      "gene_id",
+      "gene_transcript",
+      "mitopercent",
+      "sgID_AB",
+      "transcript",
+      "z_gemgroup_UMI"
+    ],
+    "resolved_columns": {
+      "sgID_AB": "sgID_AB",
+      "gene": "gene",
+      "gene_id": "gene_id",
+      "gem_group": "gem_group",
+      "UMI_count": "UMI_count",
+      "mitopercent": "mitopercent",
+      "batch": null,
+      "sample": null,
+      "donor": null
+    },
+    "column_summaries": {
+      "sgID_AB": {
+        "actual_column": "sgID_AB",
+        "n_values": 310385,
+        "n_missing": 0,
+        "n_unique": 2273,
+        "top_values": [
+          {
+            "value": "RPL3_+_39715369.23-P1P2|RPL3_+_39715378.23-P1P2",
+            "count": 1996
+          },
+          {
+            "value": "NCBP2_-_196669400.23-P1P2|NCBP2_-_196669410.23-P1P2",
+            "count": 992
+          },
+          {
+            "value": "KIF11_-_94352958.23-P1P2|KIF11_-_94352939.23-P1P2",
+            "count": 974
+          },
+          {
+            "value": "SLC39A9_+_69865454.23-P1P2|SLC39A9_-_69865448.23-P1P2",
+            "count": 752
+          },
+          {
+            "value": "DONSON_+_34960976.23-P1P2|DONSON_+_34960973.23-P1P2",
+            "count": 745
+          },
+          {
+            "value": "NUP205_-_135242670.23-P1P2|NUP205_-_135242651.23-P1P2",
+            "count": 735
+          },
+          {
+            "value": "GAB2_-_78128828.23-P1P2|GAB2_-_78128897.23-P1P2",
+            "count": 674
+          },
+          {
+            "value": "BUB1_-_111435363.23-P1P2|BUB1_-_111435372.23-P1P2",
+            "count": 648
+          },
+          {
+            "value": "CPSF3_+_9564024.23-P1P2|CPSF3_+_9563875.23-P1P2",
+            "count": 627
+          },
+          {
+            "value": "CHMP6_-_78965692.23-P1P2|CHMP6_+_78965716.23-P1P2",
+            "count": 624
+          },
+          {
+            "value": "RRM2_+_10262870.23-P1P2|RRM2_+_10262952.23-P1P2",
+            "count": 577
+          },
+          {
+            "value": "MED12_+_70338481.23-P1P2|MED12_+_70338552.23-P1P2",
+            "count": 573
+          },
+          {
+            "value": "SSRP1_-_57102976.23-P1P2|SSRP1_-_57103355.23-P1P2",
+            "count": 562
+          },
+          {
+            "value": "BCR_-_23523174.23-P1P2|BCR_-_23522920.23-P1P2",
+            "count": 561
+          },
+          {
+            "value": "PSMD6_-_64009133.23-P1P2|PSMD6_-_64009114.23-P1P2",
+            "count": 555
+          },
+          {
+            "value": "MED19_+_57479662.23-P1P2|MED19_+_57479647.23-P1P2",
+            "count": 544
+          },
+          {
+            "value": "ORC1_+_52869923.23-P1P2|ORC1_+_52869878.23-P1P2",
+            "count": 530
+          },
+          {
+            "value": "TSR2_-_54466860.23-P1P2|TSR2_-_54467042.23-P1P2",
+            "count": 523
+          },
+          {
+            "value": "MED10_-_6378270.23-P1P2|MED10_-_6378376.23-P1P2",
+            "count": 516
+          },
+          {
+            "value": "NUP98_+_3818746.23-P1P2|NUP98_-_3818519.23-P1P2",
+            "count": 510
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gene": {
+        "actual_column": "gene",
+        "n_values": 310385,
+        "n_missing": 0,
+        "n_unique": 2058,
+        "top_values": [
+          {
+            "value": "non-targeting",
+            "count": 10691
+          },
+          {
+            "value": "RPL3",
+            "count": 1996
+          },
+          {
+            "value": "NCBP2",
+            "count": 992
+          },
+          {
+            "value": "KIF11",
+            "count": 974
+          },
+          {
+            "value": "SLC39A9",
+            "count": 752
+          },
+          {
+            "value": "DONSON",
+            "count": 745
+          },
+          {
+            "value": "NUP205",
+            "count": 735
+          },
+          {
+            "value": "GAB2",
+            "count": 674
+          },
+          {
+            "value": "BUB1",
+            "count": 648
+          },
+          {
+            "value": "SNX15",
+            "count": 637
+          },
+          {
+            "value": "CPSF3",
+            "count": 627
+          },
+          {
+            "value": "CHMP6",
+            "count": 624
+          },
+          {
+            "value": "RRM2",
+            "count": 577
+          },
+          {
+            "value": "MED12",
+            "count": 573
+          },
+          {
+            "value": "SSRP1",
+            "count": 562
+          },
+          {
+            "value": "BCR",
+            "count": 561
+          },
+          {
+            "value": "PSMD6",
+            "count": 555
+          },
+          {
+            "value": "PMPCB",
+            "count": 553
+          },
+          {
+            "value": "MED19",
+            "count": 544
+          },
+          {
+            "value": "ORC1",
+            "count": 530
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gene_id": {
+        "actual_column": "gene_id",
+        "n_values": 310385,
+        "n_missing": 0,
+        "n_unique": 2058,
+        "top_values": [
+          {
+            "value": "non-targeting",
+            "count": 10691
+          },
+          {
+            "value": "ENSG00000100316",
+            "count": 1996
+          },
+          {
+            "value": "ENSG00000114503",
+            "count": 992
+          },
+          {
+            "value": "ENSG00000138160",
+            "count": 974
+          },
+          {
+            "value": "ENSG00000029364",
+            "count": 752
+          },
+          {
+            "value": "ENSG00000159147",
+            "count": 745
+          },
+          {
+            "value": "ENSG00000155561",
+            "count": 735
+          },
+          {
+            "value": "ENSG00000033327",
+            "count": 674
+          },
+          {
+            "value": "ENSG00000169679",
+            "count": 648
+          },
+          {
+            "value": "ENSG00000110025",
+            "count": 637
+          },
+          {
+            "value": "ENSG00000119203",
+            "count": 627
+          },
+          {
+            "value": "ENSG00000176108",
+            "count": 624
+          },
+          {
+            "value": "ENSG00000171848",
+            "count": 577
+          },
+          {
+            "value": "ENSG00000184634",
+            "count": 573
+          },
+          {
+            "value": "ENSG00000149136",
+            "count": 562
+          },
+          {
+            "value": "ENSG00000186716",
+            "count": 561
+          },
+          {
+            "value": "ENSG00000163636",
+            "count": 555
+          },
+          {
+            "value": "ENSG00000105819",
+            "count": 553
+          },
+          {
+            "value": "ENSG00000156603",
+            "count": 544
+          },
+          {
+            "value": "ENSG00000085840",
+            "count": 530
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gem_group": {
+        "actual_column": "gem_group",
+        "n_values": 310385,
+        "n_missing": 0,
+        "n_unique": 48,
+        "top_values": [
+          {
+            "value": "31",
+            "count": 7838
+          },
+          {
+            "value": "25",
+            "count": 7776
+          },
+          {
+            "value": "27",
+            "count": 7737
+          },
+          {
+            "value": "30",
+            "count": 7212
+          },
+          {
+            "value": "28",
+            "count": 7148
+          },
+          {
+            "value": "26",
+            "count": 7099
+          },
+          {
+            "value": "8",
+            "count": 7036
+          },
+          {
+            "value": "6",
+            "count": 7019
+          },
+          {
+            "value": "33",
+            "count": 6976
+          },
+          {
+            "value": "41",
+            "count": 6964
+          },
+          {
+            "value": "42",
+            "count": 6925
+          },
+          {
+            "value": "43",
+            "count": 6904
+          },
+          {
+            "value": "16",
+            "count": 6872
+          },
+          {
+            "value": "32",
+            "count": 6823
+          },
+          {
+            "value": "47",
+            "count": 6809
+          },
+          {
+            "value": "35",
+            "count": 6798
+          },
+          {
+            "value": "3",
+            "count": 6776
+          },
+          {
+            "value": "10",
+            "count": 6764
+          },
+          {
+            "value": "7",
+            "count": 6746
+          },
+          {
+            "value": "24",
+            "count": 6728
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 1.0,
+          "maximum": 48.0,
+          "mean": 24.608660212316963,
+          "median": 25.0
+        }
+      },
+      "UMI_count": {
+        "actual_column": "UMI_count",
+        "n_values": 310385,
+        "n_missing": 0,
+        "n_unique": 28925,
+        "top_values": [
+          {
+            "value": "12504.0",
+            "count": 49
+          },
+          {
+            "value": "12018.0",
+            "count": 48
+          },
+          {
+            "value": "12509.0",
+            "count": 47
+          },
+          {
+            "value": "13772.0",
+            "count": 46
+          },
+          {
+            "value": "12659.0",
+            "count": 45
+          },
+          {
+            "value": "12802.0",
+            "count": 45
+          },
+          {
+            "value": "12207.0",
+            "count": 45
+          },
+          {
+            "value": "11775.0",
+            "count": 44
+          },
+          {
+            "value": "11942.0",
+            "count": 44
+          },
+          {
+            "value": "12454.0",
+            "count": 43
+          },
+          {
+            "value": "12269.0",
+            "count": 43
+          },
+          {
+            "value": "11420.0",
+            "count": 43
+          },
+          {
+            "value": "11381.0",
+            "count": 43
+          },
+          {
+            "value": "13796.0",
+            "count": 43
+          },
+          {
+            "value": "12234.0",
+            "count": 42
+          },
+          {
+            "value": "12177.0",
+            "count": 42
+          },
+          {
+            "value": "12595.0",
+            "count": 42
+          },
+          {
+            "value": "13017.0",
+            "count": 42
+          },
+          {
+            "value": "14480.0",
+            "count": 42
+          },
+          {
+            "value": "13724.0",
+            "count": 42
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 1817.0,
+          "maximum": 64989.0,
+          "mean": 14094.258633632424,
+          "median": 13396.0
+        }
+      },
+      "mitopercent": {
+        "actual_column": "mitopercent",
+        "n_values": 310385,
+        "n_missing": 0,
+        "n_unique": 298645,
+        "top_values": [
+          {
+            "value": "0.10000000149011612",
+            "count": 42
+          },
+          {
+            "value": "0.1111111119389534",
+            "count": 42
+          },
+          {
+            "value": "0.125",
+            "count": 39
+          },
+          {
+            "value": "0.10526315867900848",
+            "count": 29
+          },
+          {
+            "value": "0.09090909361839294",
+            "count": 25
+          },
+          {
+            "value": "0.0833333358168602",
+            "count": 20
+          },
+          {
+            "value": "0.07692307978868484",
+            "count": 19
+          },
+          {
+            "value": "0.1071428582072258",
+            "count": 19
+          },
+          {
+            "value": "0.11538461595773697",
+            "count": 18
+          },
+          {
+            "value": "0.1428571492433548",
+            "count": 17
+          },
+          {
+            "value": "0.11764705926179886",
+            "count": 17
+          },
+          {
+            "value": "0.095238097012043",
+            "count": 16
+          },
+          {
+            "value": "0.07999999821186066",
+            "count": 15
+          },
+          {
+            "value": "0.1666666716337204",
+            "count": 15
+          },
+          {
+            "value": "0.0882352963089943",
+            "count": 15
+          },
+          {
+            "value": "0.1034482792019844",
+            "count": 15
+          },
+          {
+            "value": "0.09756097197532654",
+            "count": 13
+          },
+          {
+            "value": "0.1304347813129425",
+            "count": 12
+          },
+          {
+            "value": "0.12121212482452393",
+            "count": 12
+          },
+          {
+            "value": "0.13333334028720856",
+            "count": 11
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 0.0,
+          "maximum": 0.19997231662273407,
+          "mean": 0.10644658259623252,
+          "median": 0.10600170493125916
+        }
+      }
+    },
+    "sgID_AB_mapping": {
+      "n_unique_label_gene_pairs": 2273,
+      "n_labels_with_multiple_gene_values": 0,
+      "n_genes_with_multiple_labels": 119,
+      "top_label_gene_pairs": [
+        {
+          "label": "RPL3_+_39715369.23-P1P2|RPL3_+_39715378.23-P1P2",
+          "gene": "RPL3",
+          "count": 1996
+        },
+        {
+          "label": "NCBP2_-_196669400.23-P1P2|NCBP2_-_196669410.23-P1P2",
+          "gene": "NCBP2",
+          "count": 992
+        },
+        {
+          "label": "KIF11_-_94352958.23-P1P2|KIF11_-_94352939.23-P1P2",
+          "gene": "KIF11",
+          "count": 974
+        },
+        {
+          "label": "SLC39A9_+_69865454.23-P1P2|SLC39A9_-_69865448.23-P1P2",
+          "gene": "SLC39A9",
+          "count": 752
+        },
+        {
+          "label": "DONSON_+_34960976.23-P1P2|DONSON_+_34960973.23-P1P2",
+          "gene": "DONSON",
+          "count": 745
+        },
+        {
+          "label": "NUP205_-_135242670.23-P1P2|NUP205_-_135242651.23-P1P2",
+          "gene": "NUP205",
+          "count": 735
+        },
+        {
+          "label": "GAB2_-_78128828.23-P1P2|GAB2_-_78128897.23-P1P2",
+          "gene": "GAB2",
+          "count": 674
+        },
+        {
+          "label": "BUB1_-_111435363.23-P1P2|BUB1_-_111435372.23-P1P2",
+          "gene": "BUB1",
+          "count": 648
+        },
+        {
+          "label": "CPSF3_+_9564024.23-P1P2|CPSF3_+_9563875.23-P1P2",
+          "gene": "CPSF3",
+          "count": 627
+        },
+        {
+          "label": "CHMP6_-_78965692.23-P1P2|CHMP6_+_78965716.23-P1P2",
+          "gene": "CHMP6",
+          "count": 624
+        },
+        {
+          "label": "RRM2_+_10262870.23-P1P2|RRM2_+_10262952.23-P1P2",
+          "gene": "RRM2",
+          "count": 577
+        },
+        {
+          "label": "MED12_+_70338481.23-P1P2|MED12_+_70338552.23-P1P2",
+          "gene": "MED12",
+          "count": 573
+        },
+        {
+          "label": "SSRP1_-_57102976.23-P1P2|SSRP1_-_57103355.23-P1P2",
+          "gene": "SSRP1",
+          "count": 562
+        },
+        {
+          "label": "BCR_-_23523174.23-P1P2|BCR_-_23522920.23-P1P2",
+          "gene": "BCR",
+          "count": 561
+        },
+        {
+          "label": "PSMD6_-_64009133.23-P1P2|PSMD6_-_64009114.23-P1P2",
+          "gene": "PSMD6",
+          "count": 555
+        },
+        {
+          "label": "MED19_+_57479662.23-P1P2|MED19_+_57479647.23-P1P2",
+          "gene": "MED19",
+          "count": 544
+        },
+        {
+          "label": "ORC1_+_52869923.23-P1P2|ORC1_+_52869878.23-P1P2",
+          "gene": "ORC1",
+          "count": 530
+        },
+        {
+          "label": "TSR2_-_54466860.23-P1P2|TSR2_-_54467042.23-P1P2",
+          "gene": "TSR2",
+          "count": 523
+        },
+        {
+          "label": "MED10_-_6378270.23-P1P2|MED10_-_6378376.23-P1P2",
+          "gene": "MED10",
+          "count": 516
+        },
+        {
+          "label": "NUP98_+_3818746.23-P1P2|NUP98_-_3818519.23-P1P2",
+          "gene": "NUP98",
+          "count": 510
+        }
+      ],
+      "n_unique_label_gene_id_pairs": 2273
+    }
+  },
+  {
+    "label": "RPE1",
+    "file_name": "rpe1_raw_singlecell_01.h5ad",
+    "file_size_bytes": 8700873216,
+    "obs_columns": [
+      "UMI_count",
+      "__categories",
+      "cell_barcode",
+      "core_adjusted_UMI_count",
+      "core_scale_factor",
+      "gem_group",
+      "gene",
+      "gene_id",
+      "gene_transcript",
+      "mitopercent",
+      "sgID_AB",
+      "transcript",
+      "z_gemgroup_UMI"
+    ],
+    "resolved_columns": {
+      "sgID_AB": "sgID_AB",
+      "gene": "gene",
+      "gene_id": "gene_id",
+      "gem_group": "gem_group",
+      "UMI_count": "UMI_count",
+      "mitopercent": "mitopercent",
+      "batch": null,
+      "sample": null,
+      "donor": null
+    },
+    "column_summaries": {
+      "sgID_AB": {
+        "actual_column": "sgID_AB",
+        "n_values": 247914,
+        "n_missing": 0,
+        "n_unique": 2662,
+        "top_values": [
+          {
+            "value": "TFAM_+_60145205.23-P1P2|TFAM_-_60145223.23-P1P2",
+            "count": 3580
+          },
+          {
+            "value": "SLC1A5_+_47291839.23-P1|SLC1A5_+_47291829.23-P1",
+            "count": 1779
+          },
+          {
+            "value": "GFM1_-_158362387.23-P1P2|GFM1_+_158362379.23-P1P2",
+            "count": 1699
+          },
+          {
+            "value": "MRPL36_+_1799909.23-P1P2|MRPL36_+_1799899.23-P1P2",
+            "count": 1686
+          },
+          {
+            "value": "TARDBP_-_11072919.23-P1P2|TARDBP_+_11072781.23-P1P2",
+            "count": 1675
+          },
+          {
+            "value": "PPP6C_-_127952026.23-P1P2|PPP6C_+_127951685.23-P1P2",
+            "count": 1581
+          },
+          {
+            "value": "MRPL35_+_86426814.23-P1P2|MRPL35_-_86426601.23-P1P2",
+            "count": 1491
+          },
+          {
+            "value": "NBPF12_+_146373532.23-P1P2|NBPF12_-_146373567.23-P1P2",
+            "count": 1159
+          },
+          {
+            "value": "GTF3C4_+_135545609.23-P1P2|GTF3C4_-_135545497.23-P1P2",
+            "count": 942
+          },
+          {
+            "value": "MYBL2_+_42295803.23-P1P2|MYBL2_-_42295783.23-P1P2",
+            "count": 894
+          },
+          {
+            "value": "BCAR1_+_75299843.23-P2|BCAR1_+_75299852.23-P2",
+            "count": 873
+          },
+          {
+            "value": "HSD17B10_-_53461314.23-P1P2|HSD17B10_+_53461288.23-P1P2",
+            "count": 848
+          },
+          {
+            "value": "GAB2_-_78128828.23-P1P2|GAB2_-_78128897.23-P1P2",
+            "count": 782
+          },
+          {
+            "value": "CCDC6_-_61666340.23-P1P2|CCDC6_+_61666039.23-P1P2",
+            "count": 728
+          },
+          {
+            "value": "TWF1_-_44199727.23-P1P2|TWF1_+_44199942.23-P1P2",
+            "count": 686
+          },
+          {
+            "value": "FBXO42_+_16678912.23-P1P2|FBXO42_+_16678915.23-P1P2",
+            "count": 583
+          },
+          {
+            "value": "TPT1_-_45915260.23-P1P2|TPT1_-_45915532.23-P1P2",
+            "count": 583
+          },
+          {
+            "value": "KRT17_+_39780834.23-P1P2|KRT17_-_39780860.23-P1P2",
+            "count": 563
+          },
+          {
+            "value": "CLOCK_-_56412950.23-P1P2|CLOCK_-_56412965.23-P1P2",
+            "count": 542
+          },
+          {
+            "value": "ANAPC15_+_71823713.23-P1P2|ANAPC15_-_71823727.23-P1P2",
+            "count": 532
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gene": {
+        "actual_column": "gene",
+        "n_values": 247914,
+        "n_missing": 0,
+        "n_unique": 2394,
+        "top_values": [
+          {
+            "value": "non-targeting",
+            "count": 11485
+          },
+          {
+            "value": "TFAM",
+            "count": 3580
+          },
+          {
+            "value": "SLC1A5",
+            "count": 1962
+          },
+          {
+            "value": "GFM1",
+            "count": 1699
+          },
+          {
+            "value": "MRPL36",
+            "count": 1686
+          },
+          {
+            "value": "TARDBP",
+            "count": 1675
+          },
+          {
+            "value": "PPP6C",
+            "count": 1581
+          },
+          {
+            "value": "MRPL35",
+            "count": 1491
+          },
+          {
+            "value": "NBPF12",
+            "count": 1159
+          },
+          {
+            "value": "CCDC6",
+            "count": 1086
+          },
+          {
+            "value": "GTF3C4",
+            "count": 942
+          },
+          {
+            "value": "BCAR1",
+            "count": 922
+          },
+          {
+            "value": "MYBL2",
+            "count": 894
+          },
+          {
+            "value": "FBXO42",
+            "count": 883
+          },
+          {
+            "value": "HSD17B10",
+            "count": 848
+          },
+          {
+            "value": "POGLUT3",
+            "count": 784
+          },
+          {
+            "value": "GAB2",
+            "count": 782
+          },
+          {
+            "value": "CLOCK",
+            "count": 718
+          },
+          {
+            "value": "TMEM214",
+            "count": 705
+          },
+          {
+            "value": "TWF1",
+            "count": 686
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gene_id": {
+        "actual_column": "gene_id",
+        "n_values": 247914,
+        "n_missing": 458,
+        "n_unique": 2392,
+        "top_values": [
+          {
+            "value": "non-targeting",
+            "count": 11485
+          },
+          {
+            "value": "ENSG00000108064",
+            "count": 3580
+          },
+          {
+            "value": "ENSG00000105281",
+            "count": 1962
+          },
+          {
+            "value": "ENSG00000168827",
+            "count": 1699
+          },
+          {
+            "value": "ENSG00000171421",
+            "count": 1686
+          },
+          {
+            "value": "ENSG00000120948",
+            "count": 1675
+          },
+          {
+            "value": "ENSG00000119414",
+            "count": 1581
+          },
+          {
+            "value": "ENSG00000132313",
+            "count": 1491
+          },
+          {
+            "value": "ENSG00000268043",
+            "count": 1159
+          },
+          {
+            "value": "ENSG00000108091",
+            "count": 1086
+          },
+          {
+            "value": "ENSG00000125484",
+            "count": 942
+          },
+          {
+            "value": "ENSG00000050820",
+            "count": 922
+          },
+          {
+            "value": "ENSG00000101057",
+            "count": 894
+          },
+          {
+            "value": "ENSG00000037637",
+            "count": 883
+          },
+          {
+            "value": "ENSG00000072506",
+            "count": 848
+          },
+          {
+            "value": "ENSG00000178202",
+            "count": 784
+          },
+          {
+            "value": "ENSG00000033327",
+            "count": 782
+          },
+          {
+            "value": "ENSG00000134852",
+            "count": 718
+          },
+          {
+            "value": "ENSG00000119777",
+            "count": 705
+          },
+          {
+            "value": "ENSG00000151239",
+            "count": 686
+          }
+        ],
+        "numeric_summary": null
+      },
+      "gem_group": {
+        "actual_column": "gem_group",
+        "n_values": 247914,
+        "n_missing": 0,
+        "n_unique": 56,
+        "top_values": [
+          {
+            "value": "55",
+            "count": 5567
+          },
+          {
+            "value": "44",
+            "count": 5429
+          },
+          {
+            "value": "20",
+            "count": 5282
+          },
+          {
+            "value": "12",
+            "count": 5220
+          },
+          {
+            "value": "22",
+            "count": 5212
+          },
+          {
+            "value": "25",
+            "count": 5146
+          },
+          {
+            "value": "34",
+            "count": 5094
+          },
+          {
+            "value": "13",
+            "count": 5085
+          },
+          {
+            "value": "38",
+            "count": 5029
+          },
+          {
+            "value": "11",
+            "count": 4983
+          },
+          {
+            "value": "35",
+            "count": 4950
+          },
+          {
+            "value": "31",
+            "count": 4943
+          },
+          {
+            "value": "52",
+            "count": 4907
+          },
+          {
+            "value": "3",
+            "count": 4904
+          },
+          {
+            "value": "54",
+            "count": 4886
+          },
+          {
+            "value": "42",
+            "count": 4879
+          },
+          {
+            "value": "33",
+            "count": 4871
+          },
+          {
+            "value": "8",
+            "count": 4770
+          },
+          {
+            "value": "16",
+            "count": 4754
+          },
+          {
+            "value": "17",
+            "count": 4751
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 1.0,
+          "maximum": 56.0,
+          "mean": 28.12938357656284,
+          "median": 28.0
+        }
+      },
+      "UMI_count": {
+        "actual_column": "UMI_count",
+        "n_values": 247914,
+        "n_missing": 0,
+        "n_unique": 31699,
+        "top_values": [
+          {
+            "value": "9801.0",
+            "count": 40
+          },
+          {
+            "value": "9879.0",
+            "count": 40
+          },
+          {
+            "value": "11350.0",
+            "count": 39
+          },
+          {
+            "value": "9414.0",
+            "count": 38
+          },
+          {
+            "value": "9933.0",
+            "count": 37
+          },
+          {
+            "value": "10367.0",
+            "count": 37
+          },
+          {
+            "value": "10658.0",
+            "count": 37
+          },
+          {
+            "value": "11758.0",
+            "count": 37
+          },
+          {
+            "value": "11251.0",
+            "count": 36
+          },
+          {
+            "value": "10957.0",
+            "count": 36
+          },
+          {
+            "value": "9955.0",
+            "count": 36
+          },
+          {
+            "value": "10190.0",
+            "count": 36
+          },
+          {
+            "value": "9774.0",
+            "count": 36
+          },
+          {
+            "value": "9865.0",
+            "count": 36
+          },
+          {
+            "value": "9932.0",
+            "count": 36
+          },
+          {
+            "value": "12349.0",
+            "count": 36
+          },
+          {
+            "value": "12065.0",
+            "count": 35
+          },
+          {
+            "value": "10868.0",
+            "count": 35
+          },
+          {
+            "value": "10999.0",
+            "count": 35
+          },
+          {
+            "value": "11064.0",
+            "count": 35
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 1481.0,
+          "maximum": 149768.0,
+          "mean": 13630.902514581669,
+          "median": 12126.0
+        }
+      },
+      "mitopercent": {
+        "actual_column": "mitopercent",
+        "n_values": 247914,
+        "n_missing": 0,
+        "n_unique": 233450,
+        "top_values": [
+          {
+            "value": "0.0625",
+            "count": 52
+          },
+          {
+            "value": "0.05882352963089943",
+            "count": 52
+          },
+          {
+            "value": "0.06666667014360428",
+            "count": 35
+          },
+          {
+            "value": "0.07692307978868484",
+            "count": 34
+          },
+          {
+            "value": "0.0555555559694767",
+            "count": 32
+          },
+          {
+            "value": "0.05263157933950424",
+            "count": 28
+          },
+          {
+            "value": "0.06382978707551956",
+            "count": 26
+          },
+          {
+            "value": "0.0714285746216774",
+            "count": 24
+          },
+          {
+            "value": "0.05714285746216774",
+            "count": 23
+          },
+          {
+            "value": "0.057692307978868484",
+            "count": 22
+          },
+          {
+            "value": "0.05999999865889549",
+            "count": 21
+          },
+          {
+            "value": "0.06818182021379471",
+            "count": 20
+          },
+          {
+            "value": "0.06896551698446274",
+            "count": 20
+          },
+          {
+            "value": "0.06122449040412903",
+            "count": 19
+          },
+          {
+            "value": "0.06060606241226196",
+            "count": 19
+          },
+          {
+            "value": "0.06451612710952759",
+            "count": 19
+          },
+          {
+            "value": "0.05000000074505806",
+            "count": 17
+          },
+          {
+            "value": "0.054054055362939835",
+            "count": 17
+          },
+          {
+            "value": "0.05970149114727974",
+            "count": 16
+          },
+          {
+            "value": "0.06976744532585144",
+            "count": 16
+          }
+        ],
+        "numeric_summary": {
+          "minimum": 0.0,
+          "maximum": 0.10999932885169983,
+          "mean": 0.06116155597638856,
+          "median": 0.06155833229422569
+        }
+      }
+    },
+    "sgID_AB_mapping": {
+      "n_unique_label_gene_pairs": 2662,
+      "n_labels_with_multiple_gene_values": 0,
+      "n_genes_with_multiple_labels": 136,
+      "top_label_gene_pairs": [
+        {
+          "label": "TFAM_+_60145205.23-P1P2|TFAM_-_60145223.23-P1P2",
+          "gene": "TFAM",
+          "count": 3580
+        },
+        {
+          "label": "SLC1A5_+_47291839.23-P1|SLC1A5_+_47291829.23-P1",
+          "gene": "SLC1A5",
+          "count": 1779
+        },
+        {
+          "label": "GFM1_-_158362387.23-P1P2|GFM1_+_158362379.23-P1P2",
+          "gene": "GFM1",
+          "count": 1699
+        },
+        {
+          "label": "MRPL36_+_1799909.23-P1P2|MRPL36_+_1799899.23-P1P2",
+          "gene": "MRPL36",
+          "count": 1686
+        },
+        {
+          "label": "TARDBP_-_11072919.23-P1P2|TARDBP_+_11072781.23-P1P2",
+          "gene": "TARDBP",
+          "count": 1675
+        },
+        {
+          "label": "PPP6C_-_127952026.23-P1P2|PPP6C_+_127951685.23-P1P2",
+          "gene": "PPP6C",
+          "count": 1581
+        },
+        {
+          "label": "MRPL35_+_86426814.23-P1P2|MRPL35_-_86426601.23-P1P2",
+          "gene": "MRPL35",
+          "count": 1491
+        },
+        {
+          "label": "NBPF12_+_146373532.23-P1P2|NBPF12_-_146373567.23-P1P2",
+          "gene": "NBPF12",
+          "count": 1159
+        },
+        {
+          "label": "GTF3C4_+_135545609.23-P1P2|GTF3C4_-_135545497.23-P1P2",
+          "gene": "GTF3C4",
+          "count": 942
+        },
+        {
+          "label": "MYBL2_+_42295803.23-P1P2|MYBL2_-_42295783.23-P1P2",
+          "gene": "MYBL2",
+          "count": 894
+        },
+        {
+          "label": "BCAR1_+_75299843.23-P2|BCAR1_+_75299852.23-P2",
+          "gene": "BCAR1",
+          "count": 873
+        },
+        {
+          "label": "HSD17B10_-_53461314.23-P1P2|HSD17B10_+_53461288.23-P1P2",
+          "gene": "HSD17B10",
+          "count": 848
+        },
+        {
+          "label": "GAB2_-_78128828.23-P1P2|GAB2_-_78128897.23-P1P2",
+          "gene": "GAB2",
+          "count": 782
+        },
+        {
+          "label": "CCDC6_-_61666340.23-P1P2|CCDC6_+_61666039.23-P1P2",
+          "gene": "CCDC6",
+          "count": 728
+        },
+        {
+          "label": "TWF1_-_44199727.23-P1P2|TWF1_+_44199942.23-P1P2",
+          "gene": "TWF1",
+          "count": 686
+        },
+        {
+          "label": "FBXO42_+_16678912.23-P1P2|FBXO42_+_16678915.23-P1P2",
+          "gene": "FBXO42",
+          "count": 583
+        },
+        {
+          "label": "TPT1_-_45915260.23-P1P2|TPT1_-_45915532.23-P1P2",
+          "gene": "TPT1",
+          "count": 583
+        },
+        {
+          "label": "KRT17_+_39780834.23-P1P2|KRT17_-_39780860.23-P1P2",
+          "gene": "KRT17",
+          "count": 563
+        },
+        {
+          "label": "CLOCK_-_56412950.23-P1P2|CLOCK_-_56412965.23-P1P2",
+          "gene": "CLOCK",
+          "count": 542
+        },
+        {
+          "label": "ANAPC15_+_71823713.23-P1P2|ANAPC15_-_71823727.23-P1P2",
+          "gene": "ANAPC15",
+          "count": 532
+        }
+      ],
+      "n_unique_label_gene_id_pairs": 2662
+    }
+  }
+]
