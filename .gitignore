@@ -1,0 +1,39 @@
+# Raw and large single-cell files
+*.h5ad
+*.h5
+*.hdf5
+*.loom
+*.mtx
+*.mtx.gz
+*.tar
+*.tar.gz
+*.zip
+*.bam
+*.pod5
+
+# Local environments and credentials
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Local machine and HPC paths
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary and cache files
+tmp/
+cache/
+scratch/
+*.tmp
+*.log.tmp
+
+# Keep directory documentation and manifests tracked
+!data/**/README.md
+!logs/**/README.md
+!manifests/**/README.md
