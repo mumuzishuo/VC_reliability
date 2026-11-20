@@ -1,17 +1,37 @@
 # Step 1. Environment and raw-file audit
 
-Run these commands on the HPC login node before any expression analysis.
+The raw data directory and the Git repository are kept separate.
 
-## 1. Enter the project directory
+- Raw data directory: `$HOME/VC_reliability/raw`
+- Code repository directory: `$HOME/VC_reliability_repo`
+
+This prevents Git operations from touching the large raw files.
+
+## 1. Clone or update the code repository
+
+Run this on the HPC login node.
 
 ```bash
-cd "$HOME/VC_reliability"
-pwd
+CODE_DIR="$HOME/VC_reliability_repo"
+
+if [ -d "$CODE_DIR/.git" ]; then
+    cd "$CODE_DIR"
+    git fetch origin dev
+    git checkout dev
+    git pull --ff-only origin dev
+else
+    git clone --branch dev         https://github.com/mumuzishuo/VC_reliability.git         "$CODE_DIR"
+    cd "$CODE_DIR"
+fi
+
+git remote -v
+git branch --show-current
+git log -1 --oneline
 ```
 
-## 2. Load the Python 3.9 environment
+The raw data remains in `$HOME/VC_reliability/raw`.
 
-Use the available module if needed.
+## 2. Load the Python 3.9 environment
 
 ```bash
 module load anaconda3/2022.10
@@ -34,31 +54,31 @@ for name in ["anndata", "h5py", "pandas", "numpy"]:
 PY
 ```
 
+The first audit uses h5py and does not require anndata.
+
 ## 4. List the four raw files
 
 ```bash
-find "$HOME/VC_reliability/raw" -maxdepth 1 -type f -name "*.h5ad" -printf "%f\t%s bytes\n" | sort
+find "$HOME/VC_reliability/raw"     -maxdepth 1     -type f     -name "*.h5ad"     -printf "%f\t%s bytes\n" | sort
 ```
 
-## 5. Check storage and file checksums
+## 5. Check storage
 
 ```bash
 df -h "$HOME/VC_reliability/raw"
-sha256sum "$HOME"/VC_reliability/raw/*.h5ad
 ```
 
-The checksum command can take time for multi-gigabyte files. Save its output as a manifest after the command finishes.
+SHA256 checksums will be computed after the paths are confirmed.
 
 ## Expected output
 
 Record:
 
-- project directory
+- code repository branch and commit
 - Python version
 - package availability
 - exact raw filenames
 - file sizes
 - available storage
-- SHA256 values
 
-Do not run model training or download external datasets at this stage.
+Raw data must not be moved, renamed or overwritten during this stage.
