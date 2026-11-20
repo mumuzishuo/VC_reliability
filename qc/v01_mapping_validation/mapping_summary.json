@@ -1,0 +1,45 @@
+{
+  "environment_gene_category_counts": {
+    "HepG2": 2394,
+    "Jurkat": 2394,
+    "K562_essential": 2058,
+    "RPE1": 2394
+  },
+  "environment_non_control_gene_counts": {
+    "HepG2": 2393,
+    "Jurkat": 2393,
+    "K562_essential": 2057,
+    "RPE1": 2393
+  },
+  "environment_guide_counts": {
+    "HepG2": 2679,
+    "Jurkat": 2679,
+    "K562_essential": 2273,
+    "RPE1": 2662
+  },
+  "gene_summary_cell_counts": {
+    "HepG2": 145473,
+    "Jurkat": 262956,
+    "K562_essential": 310385,
+    "RPE1": 247914
+  },
+  "control_cell_counts": {
+    "HepG2": 4976,
+    "Jurkat": 12013,
+    "K562_essential": 10691,
+    "RPE1": 11485
+  },
+  "non_control_gene_coverage_distribution": {
+    "1": 1,
+    "3": 341,
+    "4": 2053
+  },
+  "consistent_gene_id_coverage_distribution": {
+    "1": 1,
+    "3": 341,
+    "4": 2053
+  },
+  "shared_non_control_genes_all_four_environments": 2053,
+  "genes_with_multiple_gene_ids": [],
+  "n_genes_with_multiple_gene_ids": 0
+}
