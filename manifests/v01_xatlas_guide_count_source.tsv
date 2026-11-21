@@ -1,0 +1,3 @@
+dataset	record_id	version	license	file_name	figshare_file_id	size_bytes	recorded_md5	download_url	purpose
+X-Atlas/Orion	29190726	3	CC BY-NC-SA 4.0	HCT116_filtered_guide_calls_per_cell.csv.gz	59490731	69606079	2f6a6c751e14c600dcc833964e90b1b2	https://ndownloader.figshare.com/files/59490731	guide-count metadata; cell/sample join to be verified
+X-Atlas/Orion	29190726	3	CC BY-NC-SA 4.0	HEK293T_filtered_guide_calls_per_cell.csv.gz	59490734	90886568	f2106fd8fdca7350160e9e5a91c67be8	https://ndownloader.figshare.com/files/59490734	guide-count metadata; cell/sample join to be verified
