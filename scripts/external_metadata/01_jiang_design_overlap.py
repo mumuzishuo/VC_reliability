@@ -17,7 +17,10 @@ import openpyxl
 
 
 SHEET = "ST1f_all_genes_by_pathway"
-PATHWAYS = ("IFNG", "IFNB", "TGFB", "TNFA", "INS")
+EXPECTED_PATHWAY_SETS = (
+    ("IFNG", "IFNB", "TGFB", "TNFA", "INS"),
+    ("IFNG", "IFNB", "TGFB1", "TNFA", "INS"),
+)
 OUTPUTS = ("design_overlap.tsv", "summary.json", "parameters.json")
 
 
@@ -72,22 +75,25 @@ def read_design(path):
             if not all(isinstance(v, str) and v.strip() for v in row):
                 raise ValueError("Incomplete ST1f target/pathway row: %r" % (row,))
             target, pathway = (v.strip() for v in row)
-            if pathway not in PATHWAYS:
-                raise ValueError("Unrecognized pathway %r for %r" % (pathway, target))
             key = (pathway, target)
             if key in seen:
                 duplicates += 1
             else:
                 seen.add(key)
                 pairs.append(key)
-        if not pairs or set(pathway for pathway, _ in pairs) != set(PATHWAYS):
-            raise ValueError("Empty or incomplete pathway design")
-        return sorted(pairs), duplicates, sheet.max_row
+        observed_pathways = {pathway for pathway, _ in pairs}
+        pathway_order = next(
+            (labels for labels in EXPECTED_PATHWAY_SETS if observed_pathways == set(labels)),
+            None,
+        )
+        if pathway_order is None:
+            raise ValueError("Unexpected ST1f pathway set: %r" % sorted(observed_pathways))
+        return sorted(pairs), duplicates, sheet.max_row, pathway_order
     finally:
         book.close()
 
 
-def write_outputs(outdir, parameters, pairs, duplicates, reported_rows, panel):
+def write_outputs(outdir, parameters, pairs, duplicates, reported_rows, pathway_order, panel):
     if any((outdir / name).exists() for name in (*OUTPUTS, "SHA256SUMS")):
         raise FileExistsError("Versioned output already exists; refusing overwrite")
     outdir.mkdir(parents=True, exist_ok=True)
@@ -100,6 +106,7 @@ def write_outputs(outdir, parameters, pairs, duplicates, reported_rows, panel):
     summary = {
         "status": "DESIGN_LABELS_ONLY",
         "source_sheet": SHEET,
+        "pathways_as_reported_in_st1f": list(pathway_order),
         "label_matching": "exact, whitespace stripped; no aliases, case conversion or inferred IDs",
         "main_panel_size": len(panel),
         "st1f_reported_rows": reported_rows,
@@ -116,7 +123,7 @@ def write_outputs(outdir, parameters, pairs, duplicates, reported_rows, panel):
                 "main_panel_overlap_symbols": len(grouped[p] & panel.keys()),
                 "without_exact_panel_match": len(grouped[p] - panel.keys()),
             }
-            for p in PATHWAYS
+            for p in pathway_order
         },
         "unresolved": [
             "external observed perturbation cell counts", "external guide recovery",
@@ -150,7 +157,7 @@ def main():
     if observed_hash != args.expected_workbook_sha256.lower():
         raise ValueError("Supplementary workbook SHA256 mismatch")
     panel = read_panel(args.task_panel, args.expected_tasks)
-    pairs, duplicates, reported_rows = read_design(args.workbook)
+    pairs, duplicates, reported_rows, pathway_order = read_design(args.workbook)
     parameters = {
         "source_article": "https://doi.org/10.1038/s41556-025-01622-z",
         "workbook_name": args.workbook.name,
@@ -163,7 +170,7 @@ def main():
         "openpyxl_version": openpyxl.__version__,
         "read_sheets": [SHEET],
     }
-    write_outputs(args.output_dir, parameters, pairs, duplicates, reported_rows, panel)
+    write_outputs(args.output_dir, parameters, pairs, duplicates, reported_rows, pathway_order, panel)
 
 
 if __name__ == "__main__":
