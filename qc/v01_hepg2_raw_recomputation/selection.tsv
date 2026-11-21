@@ -1,0 +1,12 @@
+perturbation	n_cells	gem_groups	low_control_cell_fraction	selection_reasons
+ALG13	30	23	0.03333333333333333	cell_support_quintile_0
+COQ5	32	25	0.0625	low_control_gem_56_rank_2
+KPNA6	58	32	0.13793103448275862	low_control_gem_36_rank_2
+KRTAP4-7	42	27	0.023809523809523808	cell_support_quintile_1
+PHB2	57	34	0.0	cell_support_quintile_2
+PRPF6	119	47	0.18487394957983194	low_control_gem_36_rank_1|max_single_gem_fraction
+SHQ1	171	53	0.14035087719298245	low_control_gem_21_rank_2
+TARS2	62	35	0.1935483870967742	low_control_gem_21_rank_1
+TFAM	1213	56	0.00741962077493817	cell_support_quintile_4
+TP53RK	35	26	0.08571428571428572	low_control_gem_56_rank_1
+WDR43	82	41	0.0	cell_support_quintile_3

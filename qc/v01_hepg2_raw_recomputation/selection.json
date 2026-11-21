@@ -1,0 +1,20 @@
+{
+  "low_control_cutoff": 30,
+  "low_control_gems": {
+    "21": 5,
+    "36": 7,
+    "56": 23
+  },
+  "manifest_sha256": "56cd4e243448aae5c53457574e11573bfa92caa7072fdfbc75e4401a842499ad",
+  "n_features": 6642,
+  "n_selected": 11,
+  "n_tasks": 1264,
+  "preprocess_code_sha256": "3b6e8596355fcecd1e7cc356c8692f851e567ff62bf63cd48f23528ae68532ba",
+  "purpose": "arithmetic QC; never use selection or target results to tune risk rules",
+  "raw_file_name": "GSE264667_hepg2_raw_singlecell_01.h5ad",
+  "raw_mtime_ns": 1713563192000000000,
+  "raw_size_bytes": 5614460941,
+  "response_sha256": "09d95d808fb724d675e4f424c204d9ca49be37071091280abffb2ce51db6ee39",
+  "rule": "5 deterministic cell-support quantiles; maximum single-GEM fraction; top two cell-fractions for each GEM with fewer than cutoff controls",
+  "selection_tsv_sha256": "162d3f66462377fa575dc41eeb2fb00f43de0273d80b9323a03db24a216b0b9c"
+}

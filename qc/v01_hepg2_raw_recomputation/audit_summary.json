@@ -1,0 +1,21 @@
+{
+  "absolute_tolerance": 2e-06,
+  "environment": "HepG2",
+  "h5py_version": "3.7.0",
+  "max_control_mean_abs_diff": 3.04274457185727e-07,
+  "max_delta_abs_diff": 7.57603260126416e-08,
+  "max_low_control_fraction_abs_diff": 5.768191424504465e-09,
+  "max_matched_control_abs_diff": 2.3525906112098482e-07,
+  "max_perturbed_mean_abs_diff": 2.445414351015529e-07,
+  "n_features": 6642,
+  "n_gems_used": 56,
+  "n_raw_rows_checked": 6877,
+  "n_tasks": 11,
+  "numpy_version": "1.21.5",
+  "python_version": "3.9.13",
+  "raw_count_over_umi_max": 0.9962313190383366,
+  "raw_count_over_umi_min": 0.952321061056483,
+  "selection_json_sha256": "87b77fcf3c5c800c2c61ce60891fc83c0e707f05c921375c37249940e8e180d6",
+  "selection_tsv_sha256": "162d3f66462377fa575dc41eeb2fb00f43de0273d80b9323a03db24a216b0b9c",
+  "status": "PASS"
+}
