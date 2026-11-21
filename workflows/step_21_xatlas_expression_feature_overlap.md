@@ -21,7 +21,7 @@ node; Slurm is unnecessary for this step.
   cd "$HOME/VC_reliability_repo"
   git pull --ff-only origin dev
   module load anaconda3/2022.10
-  (cd qc/v01_expression_features && sha256sum --status -c SHA256SUMS)
+  sha256sum --status -c qc/v01_expression_features/SHA256SUMS
 
   vc_pkg=.local_packages/pyarrow16
   if [ ! -d "$vc_pkg/pyarrow" ]; then
