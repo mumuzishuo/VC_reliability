@@ -13,6 +13,7 @@
 
 # Downloaded publisher supplementary workbook (track SHA256 and metadata only)
 metadata/v01_external_catalog/41556_2025_1622_MOESM3_ESM.xlsx
+metadata/v01_external_catalog/guide_library.csv
 
 # Local environments and credentials
 .env
