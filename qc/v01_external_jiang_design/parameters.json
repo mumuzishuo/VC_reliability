@@ -1,0 +1,14 @@
+{
+  "source_article": "https://doi.org/10.1038/s41556-025-01622-z",
+  "workbook_name": "41556_2025_1622_MOESM3_ESM.xlsx",
+  "workbook_size_bytes": 2962962,
+  "workbook_sha256": "2037dcde3ce88656e334f9c498c3f2571c05ae08727ea7fea69b1c7e29f070af",
+  "task_panel_name": "shared_perturbation_tasks.tsv",
+  "task_panel_sha256": "ab76749c407193b11f48dece676feed55a575f84f4e2e72977416db398434d46",
+  "expected_tasks": 1264,
+  "python_version": "3.9.13",
+  "openpyxl_version": "3.0.10",
+  "read_sheets": [
+    "ST1f_all_genes_by_pathway"
+  ]
+}

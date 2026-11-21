@@ -1,0 +1,55 @@
+{
+  "status": "DESIGN_LABELS_ONLY",
+  "source_sheet": "ST1f_all_genes_by_pathway",
+  "pathways_as_reported_in_st1f": [
+    "IFNG",
+    "IFNB",
+    "TGFB1",
+    "TNFA",
+    "INS"
+  ],
+  "label_matching": "exact, whitespace stripped; no aliases, case conversion or inferred IDs",
+  "main_panel_size": 1264,
+  "st1f_reported_rows": 274,
+  "design_unique_pathway_target_pairs": 271,
+  "duplicate_pathway_target_rows": 0,
+  "design_unique_target_symbols": 218,
+  "targets_in_multiple_pathways": 37,
+  "main_panel_overlap_unique_symbols": 19,
+  "design_unique_symbols_without_exact_panel_match": 199,
+  "fraction_of_main_panel_covered_by_design": 0.015031645569620253,
+  "per_pathway": {
+    "IFNG": {
+      "design_target_symbols": 59,
+      "main_panel_overlap_symbols": 5,
+      "without_exact_panel_match": 54
+    },
+    "IFNB": {
+      "design_target_symbols": 61,
+      "main_panel_overlap_symbols": 3,
+      "without_exact_panel_match": 58
+    },
+    "TGFB1": {
+      "design_target_symbols": 52,
+      "main_panel_overlap_symbols": 4,
+      "without_exact_panel_match": 48
+    },
+    "TNFA": {
+      "design_target_symbols": 55,
+      "main_panel_overlap_symbols": 5,
+      "without_exact_panel_match": 50
+    },
+    "INS": {
+      "design_target_symbols": 44,
+      "main_panel_overlap_symbols": 7,
+      "without_exact_panel_match": 37
+    }
+  },
+  "unresolved": [
+    "external observed perturbation cell counts",
+    "external guide recovery",
+    "batch-matched controls",
+    "external expression Ensembl ID overlap",
+    "external response or prediction performance"
+  ]
+}
