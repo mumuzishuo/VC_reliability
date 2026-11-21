@@ -58,6 +58,20 @@ batches, donor or biological replicates, and effective perturbation tasks.
    expression, pseudobulk or DE response. Record the freeze timestamp.
    Prior HepG2 analysis is retrospective, not independent validation.
 
+## Next metadata-only source: Jiang guide design
+
+The article [Supplementary Tables workbook](https://www.nature.com/articles/s41556-025-01622-z)
+contains Supplementary Tables 1–5. The manuscript identifies Table 1 as the
+pathway sgRNA and non-targeting control design. Download the workbook from the
+official article's “Supplementary information” section; record the final URL,
+byte size and SHA256. Inspect **Table 1 only** to derive the designed guide-to-
+target/control map and potential overlap with the project's 1,264 labels.
+Keep other sheets unopened until their content has been classified as safe
+metadata or response-derived outcomes. Guide design does not establish observed
+per-guide cell support, GEM-matched controls, sample replication or expression
+feature overlap. Those still require separate cell metadata and raw count
+checks. Do not inspect the Zenodo DE ZIP for cohort selection.
+
 ## First operator action
 
 Check the local code repository is clean and fetch only the small Zenodo
