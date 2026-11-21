@@ -25,7 +25,7 @@ all predictions, zero-response baselines, metrics, and uncertainty on the
 same fixed feature set. Keep the four unmatched IDs and all label exceptions
 out of the exact-match set; record any ID-resolution analyses separately.
 
-On HPC, verify the files before archiving. The older feature SHA256SUMS
+On HPC, verify the files before archiving. The TSV intentionally has an empty\nfinal column for exact matches, written as a terminal tab by Python's CSV writer.\nThe one-command Git whitespace override accepts this valid TSV delimiter; the\nexplicit CSV check verifies all six columns on all 6,642 rows first.\nThe older feature SHA256SUMS
 contains paths from the repository root; the new output SHA256SUMS contains
 filenames relative to its own directory.
 
@@ -52,8 +52,21 @@ filenames relative to its own directory.
     sha256sum -- "${vc_files[@]}" > "$vc_manifest"
   fi
   sha256sum --status -c "$vc_manifest"
+  python3 - <<'PY'
+import csv
+path = "qc/v01_xatlas_expression_feature_overlap/feature_overlap.tsv"
+with open(path, encoding="utf-8", newline="") as handle:
+    reader = csv.reader(handle, delimiter="\t")
+    header = next(reader)
+    assert len(header) == 6 and header[-1] == "versionless_external_ids"
+    rows = list(reader)
+assert len(rows) == 6642
+assert all(len(row) == len(header) for row in rows)
+assert sum(row[1] == "exact_unique_token" and row[-1] == "" for row in rows) == 6638
+print("TSV_EMPTY_FINAL_FIELD_OK")
+PY
   git add -- "${vc_files[@]}" "$vc_manifest"
-  git diff --cached --check
+  git -c core.whitespace=-blank-at-eol diff --cached --check
   git diff --cached --stat
   git commit --only -m "metadata: archive X-Atlas expression feature audit" \
     -- "${vc_files[@]}" "$vc_manifest"
