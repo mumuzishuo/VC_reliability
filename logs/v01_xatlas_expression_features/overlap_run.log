@@ -1,0 +1,33 @@
+f606546b64ab0ed3dbb9aa291bc984a5d354984d
+PYTHON 3.9.13
+NUMPY 1.21.5
+PYARROW 16.1.0
+{
+  "status": "FEATURE_DICTIONARY_ONLY",
+  "matching_rule": "exact Ensembl ID; unique metadata row and unique token required for usable mapping; no automatic version stripping",
+  "panel_expression_feature_count": 6642,
+  "external_metadata_rows": 38606,
+  "external_nonempty_unique_ids": 38606,
+  "external_missing_id_rows": 0,
+  "external_missing_token_rows_with_id": 0,
+  "external_duplicated_exact_ids": 0,
+  "external_versioned_ensembl_ids": 0,
+  "external_token_ids_used_by_multiple_gene_ids": 0,
+  "panel_exact_id_present": 6638,
+  "panel_exact_unique_token_mapping": 6638,
+  "panel_unmatched_with_versionless_candidate": 0,
+  "panel_status_counts": {
+    "exact_unique_token": 6638,
+    "no_external_id": 4
+  },
+  "unresolved": [
+    "expression detection in each cell line",
+    "observed guide and perturbation cell counts",
+    "controls per GEM/sample",
+    "biological replicates",
+    "external prediction performance"
+  ]
+}
+feature_overlap.tsv: OK
+summary.json: OK
+parameters.json: OK

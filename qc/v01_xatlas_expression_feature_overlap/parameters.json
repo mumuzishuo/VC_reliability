@@ -1,0 +1,11 @@
+{
+  "source": "https://huggingface.co/datasets/Xaira-Therapeutics/X-Atlas-Orion/blob/main/metadata/gene_metadata.parquet",
+  "gene_metadata_file": "gene_metadata.parquet",
+  "gene_metadata_sha256": "33900a0dbaeafb84601c7c8ba7c6642c440774fc3f49613dab11cf1f2bf0fdbf",
+  "gene_metadata_size_bytes": 881915,
+  "features_file": "common_expression_features.tsv",
+  "features_sha256": "c58c7e59fb475c1df19e72c8115f88e01386db43bd36da14d5ec109048f853fd",
+  "expected_feature_count": 6642,
+  "python_version": "3.9.13",
+  "pyarrow_version": "16.1.0"
+}

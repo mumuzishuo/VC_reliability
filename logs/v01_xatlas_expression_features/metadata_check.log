@@ -1,0 +1,6 @@
+Python 3.9.13
+881915 metadata/v01_external_catalog/gene_metadata.parquet
+33900a0dbaeafb84601c7c8ba7c6642c440774fc3f49613dab11cf1f2bf0fdbf  metadata/v01_external_catalog/gene_metadata.parquet
+READER_AVAILABLE pyarrow False
+READER_AVAILABLE fastparquet False
+READER_AVAILABLE duckdb False
