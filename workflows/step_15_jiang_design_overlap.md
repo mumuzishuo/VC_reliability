@@ -16,13 +16,14 @@ existing panel only, so no Slurm allocation is needed:
 cd "$HOME/VC_reliability_repo"
 git pull --ff-only origin dev
 module load anaconda3/2022.10
+set -o pipefail
 mkdir -p logs/v01_external_jiang_design
-python3 scripts/external_metadata/01_jiang_design_overlap.py \\
-  --workbook metadata/v01_external_catalog/41556_2025_1622_MOESM3_ESM.xlsx \\
-  --expected-workbook-sha256 2037dcde3ce88656e334f9c498c3f2571c05ae08727ea7fea69b1c7e29f070af \\
-  --task-panel qc/v01_task_panel/shared_perturbation_tasks.tsv \\
-  --expected-tasks 1264 \\
-  --output-dir qc/v01_external_jiang_design \\
+python3 scripts/external_metadata/01_jiang_design_overlap.py \
+  --workbook metadata/v01_external_catalog/41556_2025_1622_MOESM3_ESM.xlsx \
+  --expected-workbook-sha256 2037dcde3ce88656e334f9c498c3f2571c05ae08727ea7fea69b1c7e29f070af \
+  --task-panel qc/v01_task_panel/shared_perturbation_tasks.tsv \
+  --expected-tasks 1264 \
+  --output-dir qc/v01_external_jiang_design \
   2>&1 | tee logs/v01_external_jiang_design/run.log
 (cd qc/v01_external_jiang_design && sha256sum --status -c SHA256SUMS)
 ```
