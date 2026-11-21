@@ -24,7 +24,7 @@ python3 scripts/external_metadata/01_jiang_design_overlap.py \
   --task-panel qc/v01_task_panel/shared_perturbation_tasks.tsv \
   --expected-tasks 1264 \
   --output-dir qc/v01_external_jiang_design \
-  2>&1 | tee logs/v01_external_jiang_design/run.log
+  2>&1 | tee logs/v01_external_jiang_design/retry_tgfb1.log
 (cd qc/v01_external_jiang_design && sha256sum --status -c SHA256SUMS)
 ```
 
@@ -37,3 +37,13 @@ biological replicates, shared expression features, or predictive performance.
 Do not select a target based on external response or DE statistics; external
 validation requires freezing the model, calibration, risk rule and evaluation
 protocol first.
+
+## Diagnosed first-run failure
+
+The first HPC run stopped before creating the output directory because the
+actual ST1f pathway cell for AKT1 is `TGFB1`, while the initial script required
+`TGFB`. The updated script accepts either complete set of five original
+ST1f pathway labels and reports the **observed raw label**; it never changes
+target gene symbols. An unexpected sixth or missing pathway still raises an
+error. The prior traceback remains in `run.log`; the retry uses a separate
+`retry_tgfb1.log` file. No result from the first run was published.
