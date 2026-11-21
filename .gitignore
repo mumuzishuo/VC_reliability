@@ -14,6 +14,8 @@
 # Downloaded external design files (track SHA256 and derived metadata only)
 metadata/v01_external_catalog/41556_2025_1622_MOESM3_ESM.xlsx
 metadata/v01_external_catalog/guide_library.csv
+metadata/v01_external_catalog/gene_metadata.parquet
+metadata/v01_external_catalog/gene_metadata.parquet.partial
 
 # Local environments and credentials
 .env
