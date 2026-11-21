@@ -16,6 +16,10 @@ metadata/v01_external_catalog/41556_2025_1622_MOESM3_ESM.xlsx
 metadata/v01_external_catalog/guide_library.csv
 metadata/v01_external_catalog/gene_metadata.parquet
 metadata/v01_external_catalog/gene_metadata.parquet.partial
+metadata/v01_external_catalog/HCT116_filtered_guide_calls_per_cell.csv.gz
+metadata/v01_external_catalog/HCT116_filtered_guide_calls_per_cell.csv.gz.partial
+metadata/v01_external_catalog/HEK293T_filtered_guide_calls_per_cell.csv.gz
+metadata/v01_external_catalog/HEK293T_filtered_guide_calls_per_cell.csv.gz.partial
 
 # Local environments and credentials
 .env
