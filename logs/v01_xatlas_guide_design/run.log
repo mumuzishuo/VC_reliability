@@ -1,0 +1,32 @@
+{
+  "status": "GUIDE_DESIGN_ONLY",
+  "matching_rule": "exact Ensembl gene_id; exact symbol is a separate diagnostic; no alias or version normalization",
+  "main_panel_tasks": 1264,
+  "guide_library_rows": 20890,
+  "unique_nonempty_target_gene_ids": 18331,
+  "unique_ensembl_target_gene_ids": 18330,
+  "unique_nonempty_target_symbols": 18331,
+  "unique_guide_pair_ids": 20890,
+  "id_overlap_with_main_panel": 1231,
+  "symbol_overlap_with_main_panel": 1202,
+  "id_matches_with_exact_symbol_agreement": 1198,
+  "id_matches_without_exact_symbol_agreement": 33,
+  "symbol_matches_without_panel_id": 4,
+  "designed_guide_pairs_per_id_matched_target": {
+    "min": 1,
+    "median": 1,
+    "max": 3
+  },
+  "diagnostic_row_counts": {
+    "non_ensembl_id_rows": 1026,
+    "rows": 20890
+  },
+  "unresolved": [
+    "observed cells per perturbation",
+    "guide capture per cell",
+    "GEM-matched control counts",
+    "independent biological replicates",
+    "external response-gene Ensembl overlap",
+    "prediction performance"
+  ]
+}

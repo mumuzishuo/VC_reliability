@@ -1,0 +1,14 @@
+{
+  "figshare_record_id": 29190726,
+  "figshare_version": 3,
+  "figshare_file_id": 57368587,
+  "guide_library_name": "guide_library.csv",
+  "guide_library_sha256": "1841320684c72f4a6c5f51a98ebaab0054711367a9ee81cc2167dd3fbbd6381d",
+  "guide_library_size_bytes": 3648784,
+  "figshare_supplied_md5": "bf1181127b314affe95e5b5ca97bdbf0",
+  "task_panel_name": "shared_perturbation_tasks.tsv",
+  "task_panel_sha256": "ab76749c407193b11f48dece676feed55a575f84f4e2e72977416db398434d46",
+  "expected_tasks": 1264,
+  "expected_guide_rows": 20890,
+  "python_version": "3.9.13"
+}
