@@ -14,6 +14,8 @@ from pathlib import Path
 import h5py
 import numpy as np
 
+LOW_CONTROL_DIAGNOSTIC_CUTOFF = 30
+
 
 def parse_input(value):
     env, separator, path = value.partition("=")
@@ -48,7 +50,7 @@ def inspect(path, env, feature_ids, task_names, min_controls, chunk_size, tolera
             or control_means.shape != (len(gems), len(feature_ids))
             or np.any(n <= 0)
             or np.any(by_gem < 0)
-            or np.any(control_n <= 0)
+            or np.any(control_n < min_controls)
             or not np.array_equal(by_gem.sum(axis=1), n)
             or not np.isfinite(control_means).all()
         ):
@@ -74,7 +76,10 @@ def inspect(path, env, feature_ids, task_names, min_controls, chunk_size, tolera
             matched_error = np.max(np.abs(matched_expected - matched), axis=1)
             delta_expected = perturbed.astype(np.float64) - matched.astype(np.float64)
             delta_error = np.max(np.abs(delta_expected - delta), axis=1)
-            low_expected = weights[:, control_n < min_controls].sum(axis=1) / n[start:end]
+            low_expected = (
+                weights[:, control_n < LOW_CONTROL_DIAGNOSTIC_CUTOFF].sum(axis=1)
+                / n[start:end]
+            )
             low_error = np.abs(low_expected - low)
             for offset, task in enumerate(task_names[start:end]):
                 rows.append((
@@ -91,7 +96,8 @@ def inspect(path, env, feature_ids, task_names, min_controls, chunk_size, tolera
         "n_tasks": len(rows),
         "n_features": len(feature_ids),
         "n_gems": len(gems),
-        "min_controls_threshold": min_controls,
+        "manifest_gem_inclusion_min_controls": min_controls,
+        "low_control_diagnostic_cutoff": LOW_CONTROL_DIAGNOSTIC_CUTOFF,
         "n_tasks_with_any_gem_below_threshold": sum(row[6] > 0 for row in rows),
         "max_abs_matched_control_difference": max_matched,
         "max_abs_delta_difference": max_delta,
@@ -152,6 +158,7 @@ def main():
         "low_control_fraction_tolerance": 1e-6,
         "control_matching_rule": "sum_GEM (perturbation_cells_GEM / perturbation_cells_total) * control_mean_GEM",
         "delta_rule": "perturbed_mean_log1p - matched_control_mean_log1p",
+        "low_control_fraction_rule": "sum of perturbation cell weights in retained GEMs with fewer than 30 control cells",
         "environments": summaries,
     }
     (args.output_dir / "response_matrix_validation.json").write_text(
