@@ -22,6 +22,7 @@ metadata/v01_external_catalog/gene_metadata.parquet.partial
 .venv/
 venv/
 __pycache__/
+.local_packages/
 *.py[cod]
 .ipynb_checkpoints/
 
