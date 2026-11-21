@@ -72,6 +72,18 @@ per-guide cell support, GEM-matched controls, sample replication or expression
 feature overlap. Those still require separate cell metadata and raw count
 checks. Do not inspect the Zenodo DE ZIP for cohort selection.
 
+## Observed Jiang supplementary workbook structure (HPC metadata check)
+
+The operator downloaded the official Supplementary Tables XLSX as
+`41556_2025_1622_MOESM3_ESM.xlsx` (2,962,962 bytes). Its ZIP integrity
+check passed. The workbook has `Table_of_Contents`, ST1a–ST1e guide
+sheets (IFNG, IFNB, TGFB, TNFA, INS), `ST1f_all_genes_by_pathway`,
+`ST2_cytokine_concentrations`, `ST3_Outliers_Ultima_Illumina`,
+ST4a–ST4d MultiCCA sheets and ST5a–ST5e hclust sheets. Its SHA256
+has not yet been pasted into the audit record. Before a model freeze,
+inspect only ST1a–ST1f design labels and headers. Do not read ST3–ST5
+analytical outcomes to select the validation cohort or risk rules.
+
 ## First operator action
 
 Check the local code repository is clean and fetch only the small Zenodo
