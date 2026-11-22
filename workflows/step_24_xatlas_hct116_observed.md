@@ -64,3 +64,32 @@ The input hashes are in `manifests/v01_xatlas_hct116_observed_inputs.sha256`.
 Keep the Slurm stdout/stderr logs with the run. After verification, sync the
 aggregate QC outputs and run records to GitHub. The source guide files remain
 on the HPC.
+
+## Verified HPC result
+
+Slurm job `3220603` used commit `72ccd2595b081344d11f6ed9bcd8ee25f3e27a2a`.
+The user ran `sha256sum -c qc/v01_xatlas_hct116_observed/SHA256SUMS`
+on the HPC and reported that every listed file passed. The counts below are
+from that job's `summary.json`.
+
+| HCT116 guide metadata measure | Project result |
+| --- | ---: |
+| Unique full barcodes | 3,409,169 |
+| Excluded cells | 0 |
+| GEMs | 109 |
+| Non-targeting cells | 165,777 |
+| Minimum non-targeting cells in one GEM | 868 |
+| GEMs with zero or fewer than 30 non-targeting cells | 0 |
+| Targeting cells | 3,243,392 |
+| Unique observed target Ensembl IDs | 18,293 |
+| Main panel targets in the design | 1,231 of 1,264 |
+| Main panel targets with observed cells | 1,230 of 1,264 |
+| Cells assigned to main panel targets | 179,096 |
+| Main panel targets with at least 30 cells | 1,110 of 1,264 (87.8%) |
+| Main panel targets with at least 30 cells from GEMs with controls | 1,110 |
+| Main panel targets with at least 30 cells from GEMs with at least 30 controls | 1,110 |
+
+This passes the guide data support check for 1,110 HCT116 candidate tasks.
+The next step repeats these counts in HEK293T and computes their intersection.
+The check of expression cohort membership and independent biological
+replicates remains open. [Step 25](step_25_xatlas_hek293t_observed.md)
