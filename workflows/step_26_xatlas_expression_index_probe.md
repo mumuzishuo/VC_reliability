@@ -1,5 +1,9 @@
 # Step 26: probe the X-Atlas expression cell index
 
+**Current status:** Slurm job `3220676` stopped while opening the HCT116 H5AD.
+Run the [login-node range check](#login-node-range-check) before retrying the
+index probe.
+
 [Steps 24 and 25](step_25_xatlas_hek293t_observed.md) establish 1,088 shared
 tasks with guide cell support. Before counting the available expression
 cells, check how the exact Figshare v3 H5ADs encode the cell index and GEM.
@@ -42,3 +46,37 @@ Identical row totals and matching preview barcodes still require an exact
 full join. Distinct order can explain a preview mismatch. A GEM or sample
 label gives a capture batch and cannot establish independent replicates.
 Freeze the model, calibration and risk rules before reading target responses.
+
+## Slurm attempt 3220676
+
+The job ran from commit `e699a01be51a43b919e4e91c174cc680c11dd155`.
+Slurm reported `FAILED`, exit code `1:0`, after 23 seconds. The last stdout
+line was `Checking HCT116 .obs metadata from Figshare file 55021257`.
+While `h5py` was opening the remote file, `urllib` followed an HTTP 302
+redirect and the subsequent HTTPS connection returned `Errno 104`
+(connection reset by peer). The probe did not produce a verified index
+summary or a SHA256 manifest. The available log does not identify the
+component that reset the connection. Keep the original stdout and stderr
+under `logs/v01_xatlas_expression_index_probe/`.
+
+## Login node range check
+
+Run this on the login node. It uses the same curl environment as the guide
+CSV intake and requests bytes 0–7 from each pinned Figshare v3 H5AD. Curl
+has a 25 second timeout per file, a 2,048 byte size limit when the length
+is known, and a 1 KiB/s transfer rate limit. Response bodies are discarded.
+
+```bash
+git pull --ff-only origin dev &&
+bash scripts/external_metadata/09_probe_xatlas_range.sh
+```
+
+`RANGE_OK` requires curl exit 0, HTTP 206, 8 received bytes, and a
+`Content-Range` that exactly matches the requested range and recorded H5AD
+size. `RANGE_UNCONFIRMED` retains the HTTP and curl diagnostics. This checks
+transfer support. Cohort membership still requires the H5AD index probe.
+
+Logs and their SHA256 manifests go to
+`logs/v02_xatlas_expression_index_probe/`. The log contains response statuses
+and the returned range. Run the full index probe after a route is verified
+and the failed run has been reviewed.
