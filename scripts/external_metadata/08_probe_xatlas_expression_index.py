@@ -6,11 +6,12 @@ import csv
 import gzip
 import io
 import json
+import subprocess
 import sys
+from tempfile import TemporaryFile
 from itertools import islice
 from pathlib import Path
 from urllib.parse import urlsplit
-from urllib.request import Request, urlopen
 
 import h5py
 
@@ -20,7 +21,43 @@ PROBE_ROWS = 16
 GUIDE_WINDOW = 4096
 MAX_BYTES = 8 * 1024 * 1024
 MAX_REQUESTS = 256
-REQUEST_TIMEOUT = 15
+CONNECT_TIMEOUT = 8
+REQUEST_TIMEOUT = 25
+CURL_WRITEOUT = (
+    "%{stderr}%{http_code}\n%header{content-range}\n"
+    "%header{content-encoding}\n%header{etag}\n%{url_effective}\n"
+)
+
+
+def curl_range(url, start, count):
+    """Return one bounded range and its final response metadata."""
+    end = start + count - 1
+    byte_range = f"{start}-{end}"
+    command = [
+        "curl", "--disable", "--silent", "--fail", "--location", "--globoff",
+        "--proto", "=https", "--proto-redir", "=https", "--max-redirs", "4",
+        "--connect-timeout", str(CONNECT_TIMEOUT), "--max-time", str(REQUEST_TIMEOUT),
+        "--range", byte_range, "--max-filesize", str(max(count, 2048)),
+        "--header", "Accept-Encoding: identity",
+        "--output", "-", "--write-out", CURL_WRITEOUT, "--", url,
+    ]
+    with TemporaryFile() as metadata:
+        with subprocess.Popen(command, stdout=subprocess.PIPE, stderr=metadata) as process:
+            data = process.stdout.read(count + 1)
+            if len(data) > count:
+                process.kill()
+                raise OSError(f"Response exceeded the requested range {byte_range}")
+            exit_code = process.wait()
+        metadata.seek(0)
+        fields = metadata.read().decode("utf-8", errors="replace").splitlines()
+
+    status = fields[0] if fields else "000"
+    if exit_code != 0 or status != "206":
+        raise OSError(f"Range {byte_range}: curl exit {exit_code}, HTTP {status}, received {len(data)} bytes")
+    if len(fields) != 5:
+        raise OSError(f"Range {byte_range}: missing curl response metadata")
+    _, content_range, encoding, etag, effective_url = fields
+    return data, content_range, encoding.lower(), etag or None, effective_url
 
 
 class RangeReader(io.RawIOBase):
@@ -62,25 +99,16 @@ class RangeReader(io.RawIOBase):
 
         end = start + count - 1
         expected_range = f"bytes {start}-{end}/{self.size}"
-        request = Request(self.url, headers={
-            "Range": f"bytes={start}-{end}",
-            "Accept-Encoding": "identity",
-        })
         self.requests += 1
-        with urlopen(request, timeout=REQUEST_TIMEOUT) as response:
-            if urlsplit(response.geturl()).scheme != "https":
-                raise OSError("Expected an HTTPS download")
-            actual_range = response.headers.get("Content-Range")
-            encoding = response.headers.get("Content-Encoding", "identity").lower()
-            if response.status != 206 or actual_range != expected_range or encoding != "identity":
-                raise OSError(f"Expected HTTP 206 and {expected_range}; got HTTP {response.status}")
-            etag = response.headers.get("ETag")
-            if self.etag is not None and etag != self.etag:
-                raise OSError("The remote file changed during the probe")
-            self.etag = etag
-            self.url = response.geturl()  # Reuse the file URL without logging the temporary signature.
-            data = response.read(count)
-
+        data, actual_range, encoding, etag, effective_url = curl_range(self.url, start, count)
+        if actual_range != expected_range or encoding not in ("", "identity"):
+            raise OSError(f"Incorrect range or encoding for bytes {start}-{end}")
+        if urlsplit(effective_url).scheme != "https":
+            raise OSError("Expected an HTTPS download")
+        if self.etag is not None and etag != self.etag:
+            raise OSError("The remote file changed during the probe")
+        self.etag = etag
+        self.url = effective_url  # Reuse the redirect destination in memory.
         if len(data) != count:
             raise OSError(f"Short HTTP range: expected {count} bytes, read {len(data)}")
         buffer[:count] = data
@@ -117,18 +145,22 @@ def probe_cell_line(cell_line, files):
 
     url = f"https://api.figshare.com/v2/file/download/{expression['id']}"
     print(f"Checking {cell_line} .obs metadata from Figshare file {expression['id']}", flush=True)
-    with RangeReader(url, expression["size"]) as source, h5py.File(source, "r") as handle:
-        obs = handle["obs"]
-        index_name = obs.attrs["_index"]
-        if isinstance(index_name, bytes):
-            index_name = index_name.decode("utf-8")
-        index = obs[index_name]
-        obs_rows = len(index)
-        barcodes = index.asstr()[:PROBE_ROWS].tolist()
-        if not barcodes or not guide_barcodes:
-            raise ValueError(f"Empty barcode preview for {cell_line}")
-        samples = sample_labels(obs, len(barcodes))
-        columns = sorted(name for name in obs.keys() if name not in (index_name, "__categories"))
+    with RangeReader(url, expression["size"]) as source:
+        source.read(8)
+        print(f"COMPUTE_RANGE_OK {cell_line} bytes=8", flush=True)
+        source.seek(0)
+        with h5py.File(source, "r") as handle:
+            obs = handle["obs"]
+            index_name = obs.attrs["_index"]
+            if isinstance(index_name, bytes):
+                index_name = index_name.decode("utf-8")
+            index = obs[index_name]
+            obs_rows = len(index)
+            barcodes = index.asstr()[:PROBE_ROWS].tolist()
+            if not barcodes or not guide_barcodes:
+                raise ValueError(f"Empty barcode preview for {cell_line}")
+            samples = sample_labels(obs, len(barcodes))
+            columns = sorted(name for name in obs.keys() if name not in (index_name, "__categories"))
 
     guide_prefix = set(guide_barcodes)
     return {
@@ -158,6 +190,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("output_dir", type=Path)
     args = parser.parse_args()
+    curl_version = subprocess.check_output(["curl", "--version"], text=True).splitlines()[0]
+    version = tuple(int(part) for part in curl_version.split()[1].split(".")[:3])
+    if version < (7, 84, 0):
+        raise RuntimeError("Load the Anaconda curl 7.84.0 environment before running the probe")
+    print(curl_version, flush=True)
     record = json.loads((CATALOG / "xatlas_figshare_article.json").read_text(encoding="utf-8"))
     if record["id"] != 29190726 or record["version"] != 3:
         raise ValueError("Expected the archived Figshare+ v3 record")
@@ -167,12 +204,15 @@ def main():
     summary = {
         "status": "OBS_INDEX_PROBE_ONLY",
         "figshare_version_doi": record["doi"],
+        "transport": "curl_https_range",
+        "curl_version": curl_version,
         "python_version": sys.version.split()[0],
         "h5py_version": h5py.__version__,
         "obs_preview_rows": PROBE_ROWS,
         "guide_prefix_rows": GUIDE_WINDOW,
         "max_remote_bytes_per_file": MAX_BYTES,
         "max_range_requests_per_file": MAX_REQUESTS,
+        "connect_timeout_seconds": CONNECT_TIMEOUT,
         "request_timeout_seconds": REQUEST_TIMEOUT,
         "cohorts": [probe_cell_line(cell_line, files) for cell_line in CELL_LINES],
     }

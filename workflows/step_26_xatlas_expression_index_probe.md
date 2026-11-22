@@ -1,8 +1,7 @@
 # Step 26: probe the X-Atlas expression cell index
 
-**Current status:** Slurm job `3220676` stopped while opening the HCT116 H5AD.
-Run the [login-node range check](#login-node-range-check) before retrying the
-index probe.
+**Current status:** Both login-node curl range checks passed. The current
+Slurm job uses curl for the bounded `.obs` probe, with new `v03` outputs.
 
 [Steps 24 and 25](step_25_xatlas_hek293t_observed.md) establish 1,088 shared
 tasks with guide cell support. Before counting the available expression
@@ -16,27 +15,30 @@ The audit sends HTTPS range requests. It reads the length of the H5AD
 `obs` field names. For each cell line, it compares the preview with the first
 4,096 guide CSV records and the verified guide CSV total.
 
-The reader accepts only a matching HTTP 206 response and caps bytes read
-at 8 MiB per H5AD. The probe uses the Anaconda Python 3.9 and h5py environment.
+The Anaconda Python 3.9 and h5py job uses curl for each HTTPS range.
+It first reads eight bytes per file to verify the route on the compute node.
+It accepts only matching HTTP 206 responses and caps the experiment at
+8 MiB of accepted range payload per H5AD.
 Counts, response matrices, and individual barcodes are excluded from the output.
 The probe does not access the expression matrix.
 
 ```bash
 cd "$HOME/VC_reliability_repo" &&
 git pull --ff-only origin dev &&
-mkdir -p logs/v01_xatlas_expression_index_probe &&
+mkdir -p logs/v03_xatlas_expression_index_probe &&
 sbatch slurm/step_26_xatlas_expression_index_probe.slurm
 ```
 
 Slurm uses account `zhenwei01_bio214`, partition `cpu8358`, QOS `26cores`,
-one CPU, 2 GB RAM, and a 15 minute limit. The probe is expected to finish
+one CPU, 2 GB RAM, and a 15 minute limit. The Anaconda module supplies
+curl 7.84 or newer for the response header fields. The probe is expected to finish
 in a few minutes once scheduled. It requires HTTPS access from the compute node.
 
 Once the job prints `XATLAS_OBS_INDEX_PROBE_OK`, verify and read its summary:
 
 ```bash
-sha256sum --status -c qc/v01_xatlas_expression_index_probe/SHA256SUMS &&
-cat qc/v01_xatlas_expression_index_probe/summary.json
+sha256sum --status -c qc/v03_xatlas_expression_index_probe/SHA256SUMS &&
+cat qc/v03_xatlas_expression_index_probe/summary.json
 ```
 
 Save the Slurm logs, summary, code commit and SHA256 manifest. If a range
@@ -78,5 +80,31 @@ transfer support. Cohort membership still requires the H5AD index probe.
 
 Logs and their SHA256 manifests go to
 `logs/v02_xatlas_expression_index_probe/`. The log contains response statuses
-and the returned range. Run the full index probe after a route is verified
-and the failed run has been reviewed.
+and the returned range.
+
+### Verified login node result
+
+At 2026-11-22 14:12:24 UTC, the login-node check at commit
+`ace6e89f10723ad076b05964bf8a1fe88f0514cb` observed two HTTP 302 redirects,
+a final HTTP 206, and eight bytes for each file. Curl 7.84.0 exited with
+status 0 for both files.
+
+| File | Final Content-Range |
+| --- | --- |
+| HCT116 | `bytes 0-7/209354246272` |
+| HEK293T | `bytes 0-7/350164035901` |
+
+The source is the HPC log
+`logs/v02_xatlas_expression_index_probe/range_GqsiQv.log`.
+Its checksum manifest was saved alongside it. This proves a valid partial
+transfer from the login node for each file. The v03 job confirms the first
+read on its compute node with `COMPUTE_RANGE_OK` and reports the H5AD
+index and batch checks in the summary. If it stops before that marker,
+inspect its stderr for the requested range, curl exit code, and HTTP
+status. This test does not isolate the node from the HTTP client in the
+earlier failure.
+
+Before publishing v03, the range reader was tested with a local HTTPS
+server for two redirects, exact byte reads, HTTP errors, oversized bodies,
+inconsistent ranges, and changed ETags. The Slurm script passed Bash syntax
+checking. The live `.obs` read still needs the HPC run.
