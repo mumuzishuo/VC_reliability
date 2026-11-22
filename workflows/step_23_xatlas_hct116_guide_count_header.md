@@ -17,8 +17,8 @@ These values come from the archived database record and
 `manifests/v01_xatlas_guide_count_source.tsv`.
 The companion HEK293T file is listed there but is not downloaded in this step.
 The author describes these files as sgRNA count data. Their cell barcode key,
-sample/GEM join, control encoding and relationship to filtered expression cells
-have not been verified.
+sample/GEM join and control encoding are checked in Step 24. The relationship
+to filtered expression cells still requires a barcode join.
 
 ## Transport diagnosis reported from the HPC on 2026-11-22
 
@@ -27,11 +27,10 @@ have not been verified.
 | Original GET through ndownloader.figshare.com | curl 35, SSL connection reset |
 | Range GET through figshare.com/ndownloader | HTTP 202, 0 bytes, 0 redirects, curl exit 0 |
 | Range GET through api.figshare.com/v2/file/download/59490731 | HTTP 206, 1024 bytes, 2 redirects, curl exit 0 |
+| Full GET through the same API endpoint | HTTP 200, 69,606,079 bytes, 2 redirects |
 
-These are results pasted by the user, not a new test run elsewhere.
-The last request establishes that the API route returned a byte range on that
-attempt. It does not establish full-file integrity or identify the cause of
-the other responses. Figshare documents the public file download endpoint at
+These measurements come from the user's HPC logs. Figshare documents the
+public file download endpoint at
 <https://docs.figshare.com/v2/>.
 The original published download URL is retained in the source manifest;
 the API request URL used for this attempt is recorded in the new parameters file.
@@ -44,15 +43,14 @@ and three rows. It reuses the earlier CSV preview logic.
 This is file intake on the login node using Python 3.9; no Slurm job is
 submitted. The expression H5AD is not accessed.
 
+The HPC run described below is complete. This command reproduces the intake
+on a checkout with a fresh run directory:
+
 ```bash
-(
-  set -e -o pipefail
-  cd "$HOME/VC_reliability_repo"
-  git pull --ff-only origin dev
-  module load anaconda3/2022.10
-  bash -n scripts/external_metadata/04_xatlas_hct116_intake.sh
-  bash scripts/external_metadata/04_xatlas_hct116_intake.sh
-)
+cd "$HOME/VC_reliability_repo" &&
+git pull --ff-only origin dev &&
+module load anaconda3/2022.10 &&
+bash scripts/external_metadata/04_xatlas_hct116_intake.sh
 ```
 
 The new run directory is `logs/v02_xatlas_guide_calls`.
@@ -90,9 +88,20 @@ run from the repository root:
 sha256sum --status -c logs/v02_xatlas_guide_calls/SHA256SUMS
 ```
 
-The script's shell syntax was checked before publication. The full HPC intake
-has not yet been confirmed. Review the resulting schema before writing the
-streaming cell-count audit or committing the intake logs and manifest.
+## Verified HPC intake
+
+The run started at 2026-11-22 13:20:06 UTC from commit
+`c035128d5681bb33e7c5b1eedfd801574ff57b8e` and ended with
+`HCT116_METADATA_INTAKE_OK`. The actual byte size was 69,606,079. The official
+MD5, gzip integrity check, and the run's SHA256 manifest check passed.
+The downloaded file's SHA256 is
+`ccad101489130775b12637d4ce7d88dca2af653ea31b6d5c65236410c5053368`.
+
+The six CSV columns, in order, are `cell_barcode`, `num_features`,
+`feature_call`, `num_umis`, `gene_target`, and `pass_guide_filter`. The three
+previewed rows had a `HCT116_Batch1` barcode suffix and a `True` guide filter.
+The [Step 24 audit](step_24_xatlas_hct116_observed.md) counts observed cell
+support and non-targeting controls across the full guide metadata file.
 
 A guide count is not a unique cell, and a non-targeting guide is not proof of
 sufficient matched control cells. This step cannot establish eligible task
