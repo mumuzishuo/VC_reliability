@@ -1,7 +1,8 @@
 # Step 26: probe the X-Atlas expression cell index
 
-**Current status:** Both login-node curl range checks passed. The current
-Slurm job uses curl for the bounded `.obs` probe, with new `v03` outputs.
+**Current status:** Both login-node curl range checks passed. The next
+Slurm job uses curl for the bounded `.obs` probe. Each attempt writes to a
+unique job directory under `qc/v04_xatlas_expression_index_probe/`.
 
 [Steps 24 and 25](step_25_xatlas_hek293t_observed.md) establish 1,088 shared
 tasks with guide cell support. Before counting the available expression
@@ -25,7 +26,7 @@ The probe does not access the expression matrix.
 ```bash
 cd "$HOME/VC_reliability_repo" &&
 git pull --ff-only origin dev &&
-mkdir -p logs/v03_xatlas_expression_index_probe &&
+mkdir -p logs/v04_xatlas_expression_index_probe &&
 sbatch slurm/step_26_xatlas_expression_index_probe.slurm
 ```
 
@@ -37,8 +38,10 @@ in a few minutes once scheduled. It requires HTTPS access from the compute node.
 Once the job prints `XATLAS_OBS_INDEX_PROBE_OK`, verify and read its summary:
 
 ```bash
-sha256sum --status -c qc/v03_xatlas_expression_index_probe/SHA256SUMS &&
-cat qc/v03_xatlas_expression_index_probe/summary.json
+vc_job=1234567  # Replace with the job ID printed by sbatch.
+vc_out="qc/v04_xatlas_expression_index_probe/job_${vc_job}"
+sha256sum --status -c "$vc_out/SHA256SUMS" &&
+cat "$vc_out/summary.json"
 ```
 
 Save the Slurm logs, summary, code commit and SHA256 manifest. If a range
@@ -97,12 +100,22 @@ status 0 for both files.
 The source is the HPC log
 `logs/v02_xatlas_expression_index_probe/range_GqsiQv.log`.
 Its checksum manifest was saved alongside it. This proves a valid partial
-transfer from the login node for each file. The v03 job confirms the first
+transfer from the login node for each file. A successful v04 job confirms the first
 read on its compute node with `COMPUTE_RANGE_OK` and reports the H5AD
 index and batch checks in the summary. If it stops before that marker,
 inspect its stderr for the requested range, curl exit code, and HTTP
 status. This test does not isolate the node from the HTTP client in the
 earlier failure.
+
+## Slurm attempt 3237360
+
+The v03 job exited `FAILED 1:0` after five seconds. Input-hash checks
+completed, then Python printed the curl version and stopped before reading
+any H5AD bytes: `qc/v03_xatlas_expression_index_probe` already existed and
+`mkdir(..., exist_ok=False)` raised `FileExistsError`. The user checked
+that the directory contained no files or SHA256 manifest. The v03 logs and
+empty directory remain available for audit. The v04 job uses a separate
+`job_<Slurm ID>` directory for each attempt.
 
 Before publishing v03, the range reader was tested with a local HTTPS
 server for two redirects, exact byte reads, HTTP errors, oversized bodies,
