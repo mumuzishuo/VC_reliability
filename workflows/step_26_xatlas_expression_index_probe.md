@@ -1,8 +1,9 @@
 # Step 26: probe the X-Atlas expression cell index
 
-**Current status:** Both login-node curl range checks passed. The next
-Slurm job uses curl for the bounded `.obs` probe. Each attempt writes to a
-unique job directory under `qc/v04_xatlas_expression_index_probe/`.
+**Current status:** The first range request succeeded on the v04 compute node;
+the next range received HTTP 403 after the code reused the redirected URL.
+The v05 job starts each range at the official Figshare API endpoint and writes
+to a unique job directory under `qc/v05_xatlas_expression_index_probe/`.
 
 [Steps 24 and 25](step_25_xatlas_hek293t_observed.md) establish 1,088 shared
 tasks with guide cell support. Before counting the available expression
@@ -26,7 +27,7 @@ The probe does not access the expression matrix.
 ```bash
 cd "$HOME/VC_reliability_repo" &&
 git pull --ff-only origin dev &&
-mkdir -p logs/v04_xatlas_expression_index_probe &&
+mkdir -p logs/v05_xatlas_expression_index_probe &&
 sbatch slurm/step_26_xatlas_expression_index_probe.slurm
 ```
 
@@ -39,7 +40,7 @@ Once the job prints `XATLAS_OBS_INDEX_PROBE_OK`, verify and read its summary:
 
 ```bash
 vc_job=1234567  # Replace with the job ID printed by sbatch.
-vc_out="qc/v04_xatlas_expression_index_probe/job_${vc_job}"
+vc_out="qc/v05_xatlas_expression_index_probe/job_${vc_job}"
 sha256sum --status -c "$vc_out/SHA256SUMS" &&
 cat "$vc_out/summary.json"
 ```
@@ -100,7 +101,7 @@ status 0 for both files.
 The source is the HPC log
 `logs/v02_xatlas_expression_index_probe/range_GqsiQv.log`.
 Its checksum manifest was saved alongside it. This proves a valid partial
-transfer from the login node for each file. A successful v04 job confirms the first
+transfer from the login node for each file. A successful v05 job confirms the first
 read on its compute node with `COMPUTE_RANGE_OK` and reports the H5AD
 index and batch checks in the summary. If it stops before that marker,
 inspect its stderr for the requested range, curl exit code, and HTTP
@@ -116,6 +117,18 @@ any H5AD bytes: `qc/v03_xatlas_expression_index_probe` already existed and
 that the directory contained no files or SHA256 manifest. The v03 logs and
 empty directory remain available for audit. The v04 job uses a separate
 `job_<Slurm ID>` directory for each attempt.
+
+## Slurm attempt 3237464
+
+The v04 job exited `FAILED 1:0` after 16 seconds. It printed
+`COMPUTE_RANGE_OK HCT116 bytes=8`, then the subsequent HDF5 `.obs` read
+received HTTP 403 on bytes 209354245576–209354245751 (176 bytes).
+The v04 code reused the final redirected URL from the first request. The
+observed sequence is consistent with a redirected URL refusing reuse; it does
+not prove that is the sole cause. In v05 each range starts at the original
+Figshare API URL and follows a fresh HTTPS redirect. Keep the v04 stdout,
+stderr and job-specific partial directory; report whether v05 reaches the
+HCT116 and HEK293T summaries before drawing a conclusion about transport.
 
 Before publishing v03, the range reader was tested with a local HTTPS
 server for two redirects, exact byte reads, HTTP errors, oversized bodies,

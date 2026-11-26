@@ -108,7 +108,8 @@ class RangeReader(io.RawIOBase):
         if self.etag is not None and etag != self.etag:
             raise OSError("The remote file changed during the probe")
         self.etag = etag
-        self.url = effective_url  # Reuse the redirect destination in memory.
+        # Start every range at the official API URL. Reused redirects may reject
+        # later requests, as observed in the v04 HCT116 probe.
         if len(data) != count:
             raise OSError(f"Short HTTP range: expected {count} bytes, read {len(data)}")
         buffer[:count] = data

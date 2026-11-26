@@ -7,14 +7,14 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=2G
 #SBATCH --time=00:15:00
-#SBATCH --output=logs/v04_xatlas_expression_index_probe/step26_%j.out
-#SBATCH --error=logs/v04_xatlas_expression_index_probe/step26_%j.err
+#SBATCH --output=logs/v05_xatlas_expression_index_probe/step26_%j.out
+#SBATCH --error=logs/v05_xatlas_expression_index_probe/step26_%j.err
 
 set -euo pipefail
 cd "$HOME/VC_reliability_repo"
 module load anaconda3/2022.10-gcc-8.5.0-4dp3trd
 
-out="qc/v04_xatlas_expression_index_probe/job_${SLURM_JOB_ID}"
+out="qc/v05_xatlas_expression_index_probe/job_${SLURM_JOB_ID}"
 echo "OUTPUT_DIR=$out"
 script=scripts/external_metadata/08_probe_xatlas_expression_index.py
 job=slurm/step_26_xatlas_expression_index_probe.slurm
