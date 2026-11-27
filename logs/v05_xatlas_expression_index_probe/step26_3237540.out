@@ -1,0 +1,81 @@
+OUTPUT_DIR=qc/v05_xatlas_expression_index_probe/job_3237540
+curl 7.84.0 (x86_64-conda-linux-gnu) libcurl/7.84.0 OpenSSL/1.1.1q zlib/1.2.12 libssh2/1.10.0 nghttp2/1.46.0
+Checking HCT116 .obs metadata from Figshare file 55021257
+COMPUTE_RANGE_OK HCT116 bytes=8
+Checking HEK293T .obs metadata from Figshare file 55074802
+COMPUTE_RANGE_OK HEK293T bytes=8
+{
+  "status": "OBS_INDEX_PROBE_ONLY",
+  "figshare_version_doi": "10.25452/figshare.plus.29190726.v3",
+  "transport": "curl_https_range",
+  "curl_version": "curl 7.84.0 (x86_64-conda-linux-gnu) libcurl/7.84.0 OpenSSL/1.1.1q zlib/1.2.12 libssh2/1.10.0 nghttp2/1.46.0",
+  "python_version": "3.9.13",
+  "h5py_version": "3.7.0",
+  "obs_preview_rows": 16,
+  "guide_prefix_rows": 4096,
+  "max_remote_bytes_per_file": 8388608,
+  "max_range_requests_per_file": 256,
+  "connect_timeout_seconds": 8,
+  "request_timeout_seconds": 25,
+  "cohorts": [
+    {
+      "cell_line": "HCT116",
+      "h5ad_file_id": 55021257,
+      "h5ad_size_bytes": 209354246272,
+      "h5ad_source_url": "https://api.figshare.com/v2/file/download/55021257",
+      "guide_csv_file_id": 59490731,
+      "guide_csv_unique_cells": 3409169,
+      "h5ad_obs_rows": 3409169,
+      "same_cohort_size": true,
+      "obs_index": "_index",
+      "obs_columns": [
+        "gene_target",
+        "guide_target",
+        "n_genes_by_counts",
+        "num_features",
+        "pass_guide_filter",
+        "pct_counts_mt",
+        "sample",
+        "total_counts",
+        "total_counts_mt"
+      ],
+      "obs_barcodes_checked": 16,
+      "guide_prefix_rows_checked": 4096,
+      "obs_prefix_barcodes_found_in_guide_prefix": 16,
+      "same_barcode_order_in_preview": true,
+      "sample_matches_barcode_suffix_in_preview": 16,
+      "range_requests": 36,
+      "remote_bytes_read": 146448
+    },
+    {
+      "cell_line": "HEK293T",
+      "h5ad_file_id": 55074802,
+      "h5ad_size_bytes": 350164035901,
+      "h5ad_source_url": "https://api.figshare.com/v2/file/download/55074802",
+      "guide_csv_file_id": 59490734,
+      "guide_csv_unique_cells": 4534299,
+      "h5ad_obs_rows": 4534299,
+      "same_cohort_size": true,
+      "obs_index": "_index",
+      "obs_columns": [
+        "gene_target",
+        "guide_target",
+        "n_genes_by_counts",
+        "num_features",
+        "pass_guide_filter",
+        "pct_counts_mt",
+        "sample",
+        "total_counts",
+        "total_counts_mt"
+      ],
+      "obs_barcodes_checked": 16,
+      "guide_prefix_rows_checked": 4096,
+      "obs_prefix_barcodes_found_in_guide_prefix": 16,
+      "same_barcode_order_in_preview": true,
+      "sample_matches_barcode_suffix_in_preview": 16,
+      "range_requests": 36,
+      "remote_bytes_read": 115520
+    }
+  ]
+}
+XATLAS_OBS_INDEX_PROBE_OK 3237540
