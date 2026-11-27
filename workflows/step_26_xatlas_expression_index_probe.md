@@ -1,9 +1,9 @@
 # Step 26: probe the X-Atlas expression cell index
 
-**Current status:** The first range request succeeded on the v04 compute node;
-the next range received HTTP 403 after the code reused the redirected URL.
-The v05 job starts each range at the official Figshare API endpoint and writes
-to a unique job directory under `qc/v05_xatlas_expression_index_probe/`.
+**Current status:** Slurm v05 completed its bounded `.obs` index probe for both
+cell lines. H5AD row counts and the first 16 barcode positions match the guide
+CSVs; full barcode membership and independent replicate structure remain open.
+The v05 outputs are under `qc/v05_xatlas_expression_index_probe/job_3237540/`.
 
 [Steps 24 and 25](step_25_xatlas_hek293t_observed.md) establish 1,088 shared
 tasks with guide cell support. Before counting the available expression
@@ -134,3 +134,37 @@ Before publishing v03, the range reader was tested with a local HTTPS
 server for two redirects, exact byte reads, HTTP errors, oversized bodies,
 inconsistent ranges, and changed ETags. The Slurm script passed Bash syntax
 checking. The live `.obs` read still needs the HPC run.
+
+## Verified v05 metadata probe (job 3237540)
+
+The user reported Slurm `COMPLETED 0:0` in 3 min 21 sec, an empty stderr,
+`XATLAS_OBS_INDEX_PROBE_OK 3237540`, and `sha256sum -c` passing for the
+summary, code commit, both scripts and all referenced source QC files.
+These are current-project HPC calculations, not author-reported expression
+performance.
+
+| Metadata diagnostic | HCT116 | HEK293T |
+| --- | ---: | ---: |
+| Guide CSV unique cells | 3,409,169 | 4,534,299 |
+| H5AD `.obs` rows | 3,409,169 | 4,534,299 |
+| First 16 H5AD barcodes matched among first 4,096 guide rows | 16 | 16 |
+| Same barcode order in first 16 | Yes | Yes |
+| First 16 `sample` values match barcode suffix | 16 | 16 |
+| HTTPS range requests | 36 | 36 |
+| Remote bytes accepted | 146,448 | 115,520 |
+
+Both `.obs` tables expose `gene_target`, `guide_target`, `num_features`,
+`pass_guide_filter`, `sample`, `total_counts`, `total_counts_mt`,
+`n_genes_by_counts` and `pct_counts_mt`. Only the index preview and
+the schema were read; `X` and target perturbation responses were not read.
+Equal row totals and 16 ordered matches strongly support consistent export
+but do not prove full barcode membership, guide agreement for all cells,
+independent biological replicates, or external predictive performance.
+
+Next: archive the exact HPC summary and a portable SHA256 manifest in `dev`.
+Predeclare how to handle unmatched barcodes and missing/low-support GEM
+controls, then perform a full metadata barcode join as the first operation
+when the complete expression cohort is ingested. Check replicate provenance
+separately; GEMs are capture batches and must not be counted as independent
+biological repeats. Freeze prediction, calibration and risk rules before
+using any external target response for evaluation.
