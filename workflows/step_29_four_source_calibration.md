@@ -106,3 +106,49 @@ the scales, source cell counts and risk scores. The full internal panel is
 for development. Before external evaluation, fix the external task and
 feature axes from metadata, freeze the evaluation and risk rules, and save
 prediction hashes for those axes before accessing the external responses.
+
+## HPC run 3239681
+
+The user reported `COMPLETED 0:0` in 21 seconds, `SHA256_OK` for the
+run's output manifest, and `FOUR_SOURCE_CALIBRATION_COMPLETE 3239681`
+from commit `7e64c3d`. The run used 1,264 tasks and 6,642 expression
+genes. The four-source scale was **0.6019758093** for the paired predictor
+and **0.7550802413** for the common predictor. These scales describe the
+full inherited panel. External task and feature axes remain to be fixed.
+
+| Held-out context | Raw paired MSE (reconstructed) | Calibrated paired MSE | Zero MSE | Calibrated gain vs zero | Calibrated tasks better than zero |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| K562 | 0.004115 | 0.002675 | 0.003219 | 16.89% | 600/1,264 (47.47%) |
+| RPE1 | 0.007629 | 0.008246 | 0.010121 | 18.52% | 925/1,264 (73.18%) |
+| Jurkat | 0.005094 | 0.004166 | 0.005081 | 18.00% | 758/1,264 (59.97%) |
+| HepG2 | 0.004972 | 0.004799 | 0.006185 | 22.41% | 859/1,264 (67.96%) |
+
+All four nested internal folds have lower mean calibrated MSE than zero.
+In K562, 664 tasks are worse than zero and 600 improve. The net reduction
+in mean MSE therefore coexists with a failure rate above one half.
+Across the four equally weighted internal folds, the reconstructed raw
+paired MSE is 0.00545279 and the calibrated paired MSE is 0.00497150.
+Calibration reduces MSE in three folds. RPE1's calibrated MSE increases 8.08% relative to its unscaled paired
+predictor, while remaining below zero-response MSE.
+
+Calibrated and zero MSEs come directly from the HPC summary. Counts are
+recovered from the reported task fractions and the known denominator.
+The summary also allows reconstruction of raw paired MSE. Let `L` be
+the squared norm of the sum of the four response matrices divided by
+`P*G`, where `P` is the task count and `G` is the gene count.
+`L = sum_e(z_e) + 3 * paired_cross_product / (P*G)`, with `z_e` the
+fold's zero MSE. For the raw prediction `m_e` in fold `e`, let
+`A_e = <m_e,m_e>/(P*G)` and `B_e = <m_e,truth_e>/(P*G)`.
+Solve `9*A_e + 6*B_e = L - z_e` and
+`a_e^2*A_e - 2*a_e*B_e = calibrated_MSE_e - z_e`, then compute
+`raw_MSE_e = z_e + A_e - 2*B_e`. Here `a_e` is the reported
+paired scale for the fold. The mean reconstructed raw MSE agrees
+with the pooled raw MSE calculated from the reported cross product and
+predictor sum of squares to within `1e-15`.
+
+Archive the actual run files using the command above with `vc_job_id=3239681`.
+Check the reconstructed values against `internal_model_metrics.tsv`.
+Use that table for the comparison with `common_calibrated`. Use
+`internal_risk_metrics.tsv` to assess `D > 0` discrimination and the
+all-task MSE of the 80% policy. The pasted summary contains neither of
+those comparisons. External X-Atlas responses remain sealed.
