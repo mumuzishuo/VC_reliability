@@ -1,0 +1,22 @@
+{
+  "status": "GUIDE_METADATA_ONLY",
+  "min_cells": 30,
+  "min_controls_per_gem": 30,
+  "cohorts": {
+    "HCT116": {
+      "tasks_ge30_cells": 1110,
+      "tasks_ge30_cells_in_at_least_two_gems": 1110,
+      "tasks_ge30_cells_with_at_least_two_guide_pairs": 104
+    },
+    "HEK293T": {
+      "tasks_ge30_cells": 1130,
+      "tasks_ge30_cells_in_at_least_two_gems": 1130,
+      "tasks_ge30_cells_with_at_least_two_guide_pairs": 104
+    }
+  },
+  "both": {
+    "tasks_ge30_cells": 1088,
+    "tasks_ge30_cells_in_at_least_two_gems": 1088,
+    "tasks_ge30_cells_with_at_least_two_guide_pairs": 104
+  }
+}

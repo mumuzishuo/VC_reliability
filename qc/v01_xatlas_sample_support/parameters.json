@@ -1,0 +1,13 @@
+{
+  "inputs_sha256": {
+    "qc/v01_xatlas_hct116_observed/summary.json": "f0d7031a498c25ce8e9f794c203b68cd135e973f82550eadcc1aed5f40b742a1",
+    "qc/v01_xatlas_hct116_observed/gem_control_counts.tsv": "8f1fe8639e688a8e97d8374b5f556a4cffdaf3f7857763a6813cd2a2a0e6b303",
+    "qc/v01_xatlas_hct116_observed/task_support.tsv": "af2d6861dfdc1f61158a0f0df73e2d604d1df90d6cc214e785e41e8a57222fb9",
+    "qc/v01_xatlas_hct116_observed/task_gem_counts.tsv": "17072737ea9776243974d042f1a1b547496f9677e3c53ce0ec8ec8df84f25755",
+    "qc/v01_xatlas_hek293t_observed/summary.json": "dbb863dc80a07c78a4a500d5814696dd522e1ff62fe9d6a5593b5bef8998abb6",
+    "qc/v01_xatlas_hek293t_observed/gem_control_counts.tsv": "6cb164550b2b950bd0009ee2bc604a78968062d1c20c87f0a231dc98ab49e96c",
+    "qc/v01_xatlas_hek293t_observed/task_support.tsv": "08245510f995abbd80762f5c3c00319073b34a0be134715b428bd8b2730c544b",
+    "qc/v01_xatlas_hek293t_observed/task_gem_counts.tsv": "e4af09da64f04093adceb987b1880763ed6d8ecef6f3e021cba5a2e2aeafcd15"
+  },
+  "interpretation": "sample is a GEM capture batch, not a biological replicate"
+}
