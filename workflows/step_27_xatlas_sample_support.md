@@ -51,3 +51,28 @@ expression responses.
 
 Source: [Xaira X-Atlas/Orion dataset card](https://huggingface.co/datasets/Xaira-Therapeutics/X-Atlas-Orion)
 and [Figshare v3 record](https://doi.org/10.25452/figshare.plus.29190726.v3).
+
+## Verified project metadata result
+
+The user ran the script after pulling commit `c3ae519` and reported that
+`summary.json`, `parameters.json` and `task_sample_support.tsv` all
+passed the output SHA256 check. The results are current-project calculations
+from guide metadata, not author-reported performance results:
+
+| Diagnostic | HCT116 | HEK293T | Both contexts |
+| --- | ---: | ---: | ---: |
+| Tasks with at least 30 guide-validated cells | 1,110 | 1,130 | 1,088 |
+| Those present in at least two GEMs | 1,110 | 1,130 | 1,088 |
+| Those with at least two observed guide **pairs** | 104 | 104 | 104 |
+
+Thus 984 of the 1,088 cell-supported tasks lack a second observed guide
+pair in both contexts. The two members of a single dual-guide pair are
+not two independent guide-pair measurements. The GEM threshold is a
+technical distribution diagnostic, not biological replication.
+
+The aggregate JSON does not describe the largest-GEM fractions, effective
+GEM counts or exposure to GEMs with fewer than 30 controls. Inspect the
+per-task TSV after it is archived before drawing conclusions about those
+quantities. Archive the three derived outputs, their local SHA256 list and
+a portable manifest on `dev`; keep the guide CSVs outside Git. No target
+expression response was accessed in this step.
