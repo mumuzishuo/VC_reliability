@@ -1,0 +1,39 @@
+{
+  "status": "XATLAS_PREDICTION_CANDIDATE",
+  "created_utc": "2026-11-27T06:41:24.550124+00:00",
+  "primary_target": "HCT116",
+  "second_target_same_study": "HEK293T",
+  "min_cells_per_context": 30,
+  "min_controls_per_gem": 30,
+  "fit_panel": "full internal Step 29 panel",
+  "nominal_coverage": 0.8,
+  "retention_rule": "ceil(coverage * N), ascending risk then archived tie key",
+  "primary_risk": "source_held_out_excess_mse",
+  "risk_scores": [
+    "source_held_out_excess_mse",
+    "source_heterogeneity",
+    "low_source_support",
+    "predicted_rms"
+  ],
+  "failure_event": "paired_calibrated MSE > zero_response MSE",
+  "input_sha256": {
+    "manifests/v01_four_source_calibration_3239681.sha256": "0a2e55ade3ea67f85138789957aa29d16424c82bef64a7f0a2d0fdaf11538536",
+    "results/v01_four_source_calibration/job_3239681/summary.json": "f94a5f2a0e473720258b952a513deb22a42dee800ca4a1c9da616f8cd7bc6615",
+    "results/v01_four_source_calibration/job_3239681/SHA256SUMS": "b38593ffbe58749a97a1ca06f0cc48e145a4e3d2a60eebb049f2e8c8df4614b2",
+    "results/v01_four_source_calibration/job_3239681/predictions.h5": "c451eca75f0c8a7346b73fa234fc0db52fac7fe5c83a1bc28a18a97bc33884bd",
+    "manifests/v01_xatlas_sample_support_public.sha256": "49699edfec7116d213ff59b4b4925f1ea6f97345ca96d6ef64666bb85feb8f5d",
+    "qc/v01_xatlas_sample_support/task_sample_support.tsv": "20c6d38894d11c88bb1fe6216ffed29ff10f2b11abe686558e4e1bf5f9ba3544",
+    "manifests/v01_xatlas_expression_feature_review.sha256": "3cc949d449bc1bfa19714eefae7c73ed4fc90060ea7c4aea27f35ff14dcb0f33",
+    "qc/v01_xatlas_expression_feature_overlap/feature_overlap.tsv": "52edc935182efbc01ebf6634a09a3f6fb396d63f68923b3455bfae14841aacf4"
+  },
+  "code_sha256": {
+    "02_prepare_xatlas_external.py": "e855c2e4efbf1c5974ed1fd6289b46c07c7227a23bfb126bdf1dd229ff7ce732",
+    "vc_baseline.py": "8b9f5d1f87968225c435226f45bccd1c10ca92352657bf494754e5345db9a46b",
+    "vc_preprocess.py": "3b6e8596355fcecd1e7cc356c8692f851e567ff62bf63cd48f23528ae68532ba"
+  },
+  "versions": {
+    "python": "3.9.13",
+    "numpy": "1.21.5",
+    "h5py": "3.7.0"
+  }
+}

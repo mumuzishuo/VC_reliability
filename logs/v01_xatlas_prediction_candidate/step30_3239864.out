@@ -1,0 +1,12 @@
+OUTPUT_DIR=results/v01_xatlas_prediction_candidate/job_3239864
+{
+  "status": "XATLAS_PREDICTION_CANDIDATE",
+  "n_tasks": 1088,
+  "n_genes": 6638,
+  "atlas_axis_confirmed": false,
+  "alpha_paired": 0.6019758092849216,
+  "alpha_common": 0.7550802413023521,
+  "n_retained_primary_80": 871,
+  "actual_coverage": 0.8005514705882353
+}
+XATLAS_PREDICTION_CANDIDATE_COMPLETE 3239864
