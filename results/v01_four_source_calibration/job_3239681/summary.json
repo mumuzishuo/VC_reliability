@@ -1,0 +1,75 @@
+{
+  "status": "INTERNAL_DEVELOPMENT_ONLY",
+  "n_tasks": 1264,
+  "n_genes": 6642,
+  "four_source_calibration": {
+    "paired": {
+      "scale": 0.6019758092849216,
+      "cross_product": 69236.3444495392,
+      "predictor_sum_squares": 115015.16071183005
+    },
+    "common": {
+      "scale": 0.7550802413023521,
+      "cross_product": 21363.393783077925,
+      "predictor_sum_squares": 28292.878841897167
+    }
+  },
+  "internal_calibrated_paired": [
+    {
+      "held_out": "K562",
+      "model": "paired_calibrated",
+      "alpha_paired": 0.525046735502196,
+      "alpha_common": 0.7217689385627986,
+      "n_tasks": 1264,
+      "mse": 0.0026751920388969354,
+      "zero_mse": 0.00321894459399847,
+      "mean_D": -0.0005437525551015344,
+      "fraction_worse_zero": 0.5253164556962026,
+      "fraction_better_zero": 0.47468354430379744,
+      "median_mse": 0.002042094726037904,
+      "gain_vs_zero": 0.16892262020145632
+    },
+    {
+      "held_out": "RPE1",
+      "model": "paired_calibrated",
+      "alpha_paired": 0.4871808063677394,
+      "alpha_common": 0.7557207045779654,
+      "n_tasks": 1264,
+      "mse": 0.008245852559070963,
+      "zero_mse": 0.01012055895906271,
+      "mean_D": -0.0018747063999917457,
+      "fraction_worse_zero": 0.26819620253164556,
+      "fraction_better_zero": 0.7318037974683544,
+      "median_mse": 0.005630972920462092,
+      "gain_vs_zero": 0.1852374367438464
+    },
+    {
+      "held_out": "Jurkat",
+      "model": "paired_calibrated",
+      "alpha_paired": 0.5195660219481081,
+      "alpha_common": 0.6640407850371498,
+      "n_tasks": 1264,
+      "mse": 0.004166340761573923,
+      "zero_mse": 0.00508104660899547,
+      "mean_D": -0.0009147058474215469,
+      "fraction_worse_zero": 0.40031645569620256,
+      "fraction_better_zero": 0.5996835443037974,
+      "median_mse": 0.003035802000105469,
+      "gain_vs_zero": 0.1800231168519798
+    },
+    {
+      "held_out": "HepG2",
+      "model": "paired_calibrated",
+      "alpha_paired": 0.46696292379642096,
+      "alpha_common": 0.5802272555889012,
+      "n_tasks": 1264,
+      "mse": 0.004798594869649565,
+      "zero_mse": 0.006184665548621656,
+      "mean_D": -0.0013860706789720905,
+      "fraction_worse_zero": 0.3204113924050633,
+      "fraction_better_zero": 0.6795886075949367,
+      "median_mse": 0.003476197225855925,
+      "gain_vs_zero": 0.22411408799316512
+    }
+  ]
+}

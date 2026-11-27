@@ -1,0 +1,49 @@
+{
+  "source_file_roles": {
+    "K562": "sources",
+    "RPE1": "sources",
+    "Jurkat": "sources",
+    "HepG2": "evaluation_only"
+  },
+  "input_sha256_relative_to_legacy_root": {
+    "processed/v01/manifest.json": "56cd4e243448aae5c53457574e11573bfa92caa7072fdfbc75e4401a842499ad",
+    "processed/v01/sources/K562_responses.h5": "2a0745af933ef9c411e450f5762a4c7aadcf3b8cba3097eb1cf8540979904361",
+    "processed/v01/sources/RPE1_responses.h5": "26763041f5c73a2780207928be514954b44131ecc103c8c808285058c68672b0",
+    "processed/v01/sources/Jurkat_responses.h5": "e0cbffb7ac768f3670a5ac5bfb08143390499f699802da77eae5a39be66392c2",
+    "processed/v01/evaluation_only/HepG2_responses.h5": "09d95d808fb724d675e4f424c204d9ca49be37071091280abffb2ce51db6ee39"
+  },
+  "input_audit_sha256": {
+    "qc/v01_existing_responses/legacy_inputs.sha256": "1a544290fd918ffb4191529cc4e74c9ed5b6b8b81d5c4b8f47a47b4f07dcd91d",
+    "qc/v01_response_provenance/response_provenance.json": "571db66f627892f916569e6936673960bfebb1ed5002dc97fe97b562913a31f6"
+  },
+  "code_sha256": {
+    "01_four_source_calibration.py": "466f52908a5451746b0e71b8ae9246c2a25635ece64731177c57d2dd87f0fca9",
+    "vc_baseline.py": "8b9f5d1f87968225c435226f45bccd1c10ca92352657bf494754e5345db9a46b",
+    "vc_diagnostics.py": "56f62f386f6100a990cde0de3bc056492bcef62a23a948987107cb541a1e1d8a",
+    "vc_internal.py": "0d7f7e80943a78db66245f7ea690513a4ba8cab24d7c05524d1b0d24e0f94892",
+    "vc_preprocess.py": "3b6e8596355fcecd1e7cc356c8692f851e567ff62bf63cd48f23528ae68532ba"
+  },
+  "versions": {
+    "python": "3.9.13",
+    "numpy": "1.21.5",
+    "scipy": "1.9.1",
+    "h5py": "3.7.0"
+  },
+  "seed": 20261127,
+  "nominal_coverage": 0.8,
+  "coverage_rounding": "ceil(0.8 * n_tasks)",
+  "scale_bounds": [
+    0,
+    1
+  ],
+  "zero_power_scale": 0,
+  "risk_event": "paired_calibrated MSE minus zero response MSE > 0",
+  "risk_policy": "retain lowest scores and predict zero on the other tasks",
+  "risk_scores": [
+    "source_heterogeneity",
+    "low_source_support",
+    "predicted_rms",
+    "source_held_out_excess_mse"
+  ],
+  "higher_scores_mean_higher_proposed_risk": true
+}
