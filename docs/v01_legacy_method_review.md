@@ -1,9 +1,9 @@
 # Legacy predictor review v01 (provisional, 2026-11-27)
 
-This records a read-only review of excerpts supplied from the HPC. It is
-not the frozen external validation protocol. The original Python files
-remain at `$HOME/VC_reliability/` on the HPC and have not been copied into
-this repository.
+This records a review of the legacy internal pilot. Step 28 archived the
+source files byte for byte at commit `f999294`, with hashes in
+`manifests/v01_legacy_code.sha256`. Step 29 prepares the four-source
+development analysis. The external evaluation protocol remains open.
 
 ## Source identity reported by the HPC
 
@@ -102,5 +102,34 @@ excerpts share the SHA256 identities above. They confirm:
   not independent biological experiments. Reciprocal directions
   within a repeat are dependent.
 
-No external X-Atlas response was read. The complete legacy code is
-not yet in the repository, so this is a provisional source audit.
+No external X-Atlas response was read during the excerpt review.
+
+## Review of the archived code
+
+The archived preprocessing manifest uses cell and control support and exact
+shared IDs from all four internal contexts to choose the inherited panel.
+The normalization divides each raw gene count by the original cell UMI total
+before multiplying by 10,000 and applying `log1p`. The control mean uses the
+task's own proportions across GEMs. The main v01 matrix includes GEMs with
+at least one control and records cells exposed to GEMs with fewer than 30.
+Three HepG2 GEMs fall below 30 controls, as recorded in Step 13.
+
+`vc_baseline.read_response()` checks the H5 role, environment, dimensions,
+unique axes and finite responses. `align()` requires identical task and gene
+sets and reorders them explicitly. The HepG2 baseline evaluator verifies the
+code, source and prediction hashes before opening the HepG2 response H5.
+`vc_internal` and `vc_specificity` evaluate K562, RPE1 and Jurkat. Their
+entry points run multiple stages and can reveal internal outcomes within
+the same command. Separate prediction and external evaluation entry points
+are needed for the cross-study protocol.
+
+`vc_internal` splits perturbation cells within each task and control cells
+within each GEM. It reuses each control cell's assigned half across all
+perturbations. It computes matched controls from each half's GEM weights
+and checks reconstruction against the full response. The halves share the
+same underlying screen. `vc_diagnostics` applies label permutations and
+reports AUROC and average precision for positive excess MSE. Its historical
+risk and split-half diagnostics concern the three internal folds. Step 29
+reuses the verified loaders and metrics, fits separate paired and common
+scalars, and evaluates fixed candidate scores across four nested internal
+folds. See [Step 29](../workflows/step_29_four_source_calibration.md).
