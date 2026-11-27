@@ -146,9 +146,45 @@ paired scale for the fold. The mean reconstructed raw MSE agrees
 with the pooled raw MSE calculated from the reported cross product and
 predictor sum of squares to within `1e-15`.
 
-Archive the actual run files using the command above with `vc_job_id=3239681`.
-Check the reconstructed values against `internal_model_metrics.tsv`.
-Use that table for the comparison with `common_calibrated`. Use
-`internal_risk_metrics.tsv` to assess `D > 0` discrimination and the
-all-task MSE of the 80% policy. The pasted summary contains neither of
-those comparisons. External X-Atlas responses remain sealed.
+The HPC run files were archived at `80db393`. The seven tracked run files
+match the public SHA256 manifest. The original model table agrees with the
+reconstruction within rounding.
+
+## Review of archived results
+
+The following results come from the archived internal model and risk
+tables at `80db393`.
+
+| Held-out context | Paired raw MSE | Paired calibrated MSE | Common calibrated MSE | Paired improvement vs calibrated common |
+| --- | ---: | ---: | ---: | ---: |
+| K562 | 0.004115 | 0.002675 | 0.003267 | 18.11% |
+| RPE1 | 0.007629 | 0.008246 | 0.008967 | 8.04% |
+| Jurkat | 0.005094 | 0.004166 | 0.004799 | 13.18% |
+| HepG2 | 0.004972 | 0.004799 | 0.005643 | 14.97% |
+
+The paired calibrated mean MSE is below the common calibrated mean MSE
+in each context. Calibration raises the paired mean MSE in RPE1.
+
+Only `source_held_out_excess_mse` outperforms all three decision
+comparators in each internal fold at the fixed coverage. It also gives
+AUROC above 0.5 and average precision above the observed failure prevalence
+in all four folds. The policy retains 1,012 of 1,264 predictions and uses
+zero response on the others. Its improvement compares all-task policy MSE
+with the all-task MSE of always using the paired calibrated predictor.
+
+| Held-out context | AUROC for D > 0 | Average precision | Failure prevalence, all → retained | All-task policy improvement |
+| --- | ---: | ---: | ---: | ---: |
+| K562 | 0.844 | 0.856 | 52.53% → 41.80% | 1.399% |
+| RPE1 | 0.888 | 0.690 | 26.82% → 15.02% | 0.024% |
+| Jurkat | 0.792 | 0.714 | 40.03% → 29.55% | 0.339% |
+| HepG2 | 0.874 | 0.704 | 32.04% → 19.57% | 0.029% |
+
+This score retains tasks with higher absolute mean MSE than the full
+panel in every fold, while reducing the retained failure rate relative
+to zero. The observed all-task utility gains are small, particularly for
+RPE1 and HepG2. The four decisions describe this shared set of tasks
+and related screens. The score was selected on these internal results
+for prospective use and is a ranking of excess error. Step 30 records the
+external candidate axes and policy before accessing the external responses.
+
+[Step 30](step_30_prepare_xatlas_external.md)
