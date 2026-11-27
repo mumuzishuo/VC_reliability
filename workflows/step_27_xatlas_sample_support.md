@@ -76,3 +76,56 @@ per-task TSV after it is archived before drawing conclusions about those
 quantities. Archive the three derived outputs, their local SHA256 list and
 a portable manifest on `dev`; keep the guide CSVs outside Git. No target
 expression response was accessed in this step.
+
+## Distribution review from the archived task table
+
+Input: `qc/v01_xatlas_sample_support/task_sample_support.tsv`, SHA256
+`20c6d38894d11c88bb1fe6216ffed29ff10f2b11abe686558e4e1bf5f9ba3544`
+(pinned in `manifests/v01_xatlas_sample_support_public.sha256`). The following
+are current-project calculations restricted to tasks with at least 30
+validated cells **in that context**:
+
+| Diagnostic | HCT116 (1,110 tasks) | HEK293T (1,130 tasks) |
+| --- | ---: | ---: |
+| Minimum distinct GEMs for any qualifying task | 24 | 22 |
+| Median distinct GEMs | 75 | 106 |
+| Median fraction of task cells in its largest GEM | 3.70% | 3.57% |
+| Maximum fraction of task cells in its largest GEM | 17.65% | 21.88% |
+| Qualifying tasks exposed to a GEM with <30 controls | 0 | 15 |
+| Total qualifying perturbation cells in such GEMs | 0 | 26 |
+| Minimum controls in a used GEM | 868 | 12 |
+
+All 15 affected HEK293T tasks are among the 1,088 qualifying in both
+contexts. The largest low-control-GEM contribution to any one qualifying
+HEK293T task is 3/121 cells (2.48%). These small exposures do not establish
+how much the eventual response changes if those cells are removed. Keep
+both the complete and the >=30-control-GEM response constructions as a
+predeclared sensitivity comparison; do not choose after seeing target MSE.
+
+A compact reproduction of the summary (Python 3.9, run from repository root):
+
+```python
+import csv
+from statistics import median
+
+path = "qc/v01_xatlas_sample_support/task_sample_support.tsv"
+with open(path, encoding="utf-8", newline="") as handle:
+    rows = list(csv.DictReader(handle, delimiter="\t"))
+
+for line in ("HCT116", "HEK293T"):
+    selected = [r for r in rows if r["cell_line"] == line and int(r["cells"]) >= 30]
+    gems = [int(r["observed_gems"]) for r in selected]
+    largest = [float(r["largest_gem_cell_fraction"]) for r in selected]
+    low = [int(r["cells_in_gems_lt30_controls"]) for r in selected]
+    controls = [int(r["minimum_controls_in_used_gem"]) for r in selected]
+    print(line, len(selected), min(gems), median(gems),
+          median(largest), max(largest), sum(x > 0 for x in low),
+          sum(low), min(controls))
+```
+
+The median and range describe technical capture distribution, not a count
+of independent experimental repeats. The released `.obs` schema has a
+`sample` field, but the available metadata do not yet establish a mapping
+from its GEM labels to independent biological experiments. Full barcode and
+label matching, replicate provenance, and the locked evaluation protocol
+remain necessary before reading external response data.
