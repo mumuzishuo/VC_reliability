@@ -102,3 +102,49 @@ Keep `predictions.h5` on the HPC. Preserve `task_eligibility.tsv`,
 `feature_axis.tsv`, `summary.json`, `parameters.json`, the code commit,
 logs and SHA256 entries in the audit trail. Archive the small outputs on
 `dev` after the job completes.
+
+## Verified HPC run 3239864
+
+The user reported Slurm `COMPLETED 0:0` in eight seconds, `SHA256_OK`,
+and `XATLAS_PREDICTION_CANDIDATE_COMPLETE 3239864` for commit `5c7492c`.
+
+| Project result | Value |
+| --- | ---: |
+| Candidate perturbations | 1,088 |
+| Candidate expression genes | 6,638 |
+| Paired calibration coefficient | 0.6019758092849216 |
+| Common calibration coefficient | 0.7550802413023521 |
+| Retained predictions | 871 |
+| Retained fraction | 80.0551% |
+
+The run status is `XATLAS_PREDICTION_CANDIDATE`, with
+`atlas_axis_confirmed: false`. The counts describe the projection onto
+the candidate metadata axes. The exact H5AD gene-axis audit follows in
+Step 31. The full cell barcode and guide checks follow at intake.
+
+## Archive the actual HPC outputs
+
+```bash
+(
+  set -euo pipefail
+  cd "$HOME/VC_reliability_repo"
+  git pull --ff-only origin dev
+  vc_out=results/v01_xatlas_prediction_candidate/job_3239864
+  vc_manifest=manifests/v01_xatlas_prediction_candidate_3239864.sha256
+  vc_files=("$vc_out"/{task_eligibility.tsv,feature_axis.tsv,summary.json,parameters.json,code_commit.txt,SHA256SUMS}
+            logs/v01_xatlas_prediction_candidate/step30_3239864.out)
+  sha256sum --quiet -c "$vc_out/SHA256SUMS"
+  sha256sum -- "${vc_files[@]}" > "$vc_manifest"
+  sha256sum --quiet -c "$vc_manifest"
+  git add -- "${vc_files[@]}" "$vc_manifest"
+  git -c core.whitespace=cr-at-eol diff --cached --check -- "${vc_files[@]}" "$vc_manifest"
+  git commit --only -m "results: archive X-Atlas prediction candidate job 3239864" -- \
+    "${vc_files[@]}" "$vc_manifest"
+  git push origin dev
+)
+```
+
+The public manifest covers the archived reports and the original run
+checksum list. The original list also records the hash of the local H5.
+
+[Step 31](step_31_xatlas_gene_axis.md)
